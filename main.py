@@ -11,16 +11,20 @@ class app():
 
         self.app = QtWidgets.QApplication(sys.argv)
         self.mainwindow = QtWidgets.QMainWindow()
-        self.ui = loadUi("main.ui", self.mainwindow)
+        self.ui = loadUi("source\\main.ui", self.mainwindow)
         self.mainwindow.show()
 
         self.checkAdd()
+        self.checkRemove()
         self.checkGenerate()
 
         self.app.exec()
     
     def checkAdd(self):
         self.ui.buttonAddBlock.clicked.connect(self.addBlock)
+    
+    def checkRemove(self):
+        self.ui.buttonRemoveBlock.clicked.connect(self.removeBlock)
     
     def checkGenerate(self):
         self.ui.buttonGeneratePack.clicked.connect(self.generate)
@@ -36,6 +40,13 @@ class app():
             "breakSound": self.ui.blockBreakSound.text()
         }
         self.blocks[self.ui.blockName.text()] = self.blockProperties
+        
+        self.ui.blockList.addItem(self.blockProperties["name"])
+    
+    def removeBlock(self):
+        self.curItem = self.ui.blockList.currentRow()
+        self.blocks.pop(self.ui.blockList.item(self.curItem).text())
+        self.ui.blockList.takeItem(self.curItem)
         print(self.blocks)
     
     def generate(self):

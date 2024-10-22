@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>891</width>
-    <height>600</height>
+    <height>593</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Blockker - A Datapack Tool for custom blocks</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -288,23 +288,10 @@
      <string>All Blocks</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="blockRemoveName">
-    <property name="geometry">
-     <rect>
-      <x>680</x>
-      <y>280</y>
-      <width>131</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="placeholderText">
-     <string>ruby_ore</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="buttonRemoveBlock">
     <property name="geometry">
      <rect>
-      <x>590</x>
+      <x>680</x>
       <y>280</y>
       <width>75</width>
       <height>23</height>
@@ -436,8 +423,8 @@
    <widget class="QPushButton" name="buttonGeneratePack">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>520</y>
+      <x>670</x>
+      <y>530</y>
       <width>91</width>
       <height>23</height>
      </rect>
