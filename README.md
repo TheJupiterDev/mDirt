@@ -1,5 +1,6 @@
 # Blockker
 A tool for easily creating custom blocks using Minecraft Datapacks.
+**Only Supported for 1.21.2 and up! No previous versions will be added!**
 
 ## How to use
 You need Python 3.12.* and PyQt5 (pip install PyQt5)
@@ -10,6 +11,4 @@ Run main.py. Fill in all the details, press "Generate Pack" when you are ready.
 Removing blocks is not yet supported (though the UI is in place.)
 The `description` field does not do anything, this will be changed in the future.
 
-
-
-The tool was made entirely by me, but the method for adding custom blocks was developed by WASD Build Team!
+The tool was made entirely by me, but the method for adding custom blocks was developed by https://youtube.com/@WASDBuildTeam!
