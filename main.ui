@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>891</width>
-    <height>593</height>
+    <width>550</width>
+    <height>616</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,65 +40,11 @@
      <string>ruby_ore</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>350</y>
-      <width>81</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Texture Path:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="blockTexture">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>350</y>
-      <width>141</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="placeholderText">
-     <string>D:\textures\ruby_ore.png</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>380</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Model:</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="blockModel">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>380</y>
-      <width>69</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>Block</string>
-     </property>
-    </item>
-   </widget>
    <widget class="QLineEdit" name="blockCMD">
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>410</y>
+      <y>380</y>
       <width>113</width>
       <height>20</height>
      </rect>
@@ -111,7 +57,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>410</y>
+      <y>380</y>
       <width>101</width>
       <height>16</height>
      </rect>
@@ -149,8 +95,8 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>290</y>
+      <x>30</x>
+      <y>350</y>
       <width>61</width>
       <height>16</height>
      </rect>
@@ -162,8 +108,8 @@
    <widget class="QLineEdit" name="blockBase">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>290</y>
+      <x>90</x>
+      <y>350</y>
       <width>161</width>
       <height>20</height>
      </rect>
@@ -172,78 +118,14 @@
      <string/>
     </property>
     <property name="placeholderText">
-     <string>minecraft:white_stained_glass</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>320</y>
-      <width>71</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Place Sound:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="blockPlaceSound">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>320</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Custom Sounds are currently unsuportted!&lt;br/&gt;Only use default Minecraft Sounds!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="placeholderText">
-     <string>block.stone.place</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>350</y>
-      <width>71</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Break Sound:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="blockBreakSound">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>350</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Custom Sounds are currently unsuportted!&lt;br/&gt;Only use default Minecraft Sounds!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="placeholderText">
-     <string>block.stone.break</string>
-    </property>
-    <property name="clearButtonEnabled">
-     <bool>false</bool>
+     <string>minecraft:stone</string>
     </property>
    </widget>
    <widget class="QPushButton" name="buttonAddBlock">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>410</y>
+      <x>80</x>
+      <y>460</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -255,8 +137,8 @@
    <widget class="QListWidget" name="blockList">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>70</y>
+      <x>280</x>
+      <y>290</y>
       <width>256</width>
       <height>192</height>
      </rect>
@@ -268,7 +150,7 @@
       <x>540</x>
       <y>-10</y>
       <width>21</width>
-      <height>601</height>
+      <height>761</height>
      </rect>
     </property>
     <property name="orientation">
@@ -278,8 +160,8 @@
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>50</y>
+      <x>380</x>
+      <y>270</y>
       <width>47</width>
       <height>13</height>
      </rect>
@@ -291,8 +173,8 @@
    <widget class="QPushButton" name="buttonRemoveBlock">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>280</y>
+      <x>360</x>
+      <y>490</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -305,7 +187,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>260</y>
+      <y>250</y>
       <width>551</width>
       <height>20</height>
      </rect>
@@ -317,8 +199,8 @@
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>110</y>
+      <x>160</x>
+      <y>70</y>
       <width>47</width>
       <height>13</height>
      </rect>
@@ -330,8 +212,8 @@
    <widget class="QLineEdit" name="packName">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>110</y>
+      <x>200</x>
+      <y>70</y>
       <width>113</width>
       <height>20</height>
      </rect>
@@ -343,8 +225,8 @@
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>140</y>
+      <x>160</x>
+      <y>100</y>
       <width>61</width>
       <height>16</height>
      </rect>
@@ -356,8 +238,8 @@
    <widget class="QLineEdit" name="packNamespace">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>140</y>
+      <x>220</x>
+      <y>100</y>
       <width>113</width>
       <height>20</height>
      </rect>
@@ -369,8 +251,8 @@
    <widget class="QLabel" name="label_12">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>170</y>
+      <x>160</x>
+      <y>130</y>
       <width>61</width>
       <height>16</height>
      </rect>
@@ -382,8 +264,8 @@
    <widget class="QLineEdit" name="packDescription">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>170</y>
+      <x>220</x>
+      <y>130</y>
       <width>181</width>
       <height>20</height>
      </rect>
@@ -395,8 +277,8 @@
    <widget class="QLabel" name="label_13">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>200</y>
+      <x>160</x>
+      <y>160</y>
       <width>47</width>
       <height>13</height>
      </rect>
@@ -408,23 +290,23 @@
    <widget class="QComboBox" name="packVersion">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>200</y>
+      <x>220</x>
+      <y>160</y>
       <width>69</width>
       <height>22</height>
      </rect>
     </property>
     <item>
      <property name="text">
-      <string>1.21.2</string>
+      <string>1.21.3</string>
      </property>
     </item>
    </widget>
    <widget class="QPushButton" name="buttonGeneratePack">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>530</y>
+      <x>210</x>
+      <y>550</y>
       <width>91</width>
       <height>23</height>
      </rect>
@@ -436,8 +318,8 @@
    <widget class="QLabel" name="label_14">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>20</y>
+      <x>150</x>
+      <y>10</y>
       <width>281</width>
       <height>16</height>
      </rect>
@@ -449,14 +331,56 @@
    <widget class="QLabel" name="label_15">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>40</y>
+      <x>190</x>
+      <y>30</y>
       <width>131</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
      <string>Made by Jupiter Dev 2024</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="status">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>580</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>status</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>410</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Emits Light?</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="lightLevel">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>410</y>
+      <width>42</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>15</number>
     </property>
    </widget>
   </widget>

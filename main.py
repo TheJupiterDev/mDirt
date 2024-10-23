@@ -11,7 +11,7 @@ class app():
 
         self.app = QtWidgets.QApplication(sys.argv)
         self.mainwindow = QtWidgets.QMainWindow()
-        self.ui = loadUi("source\\main.ui", self.mainwindow)
+        self.ui = loadUi("main.ui", self.mainwindow)
         self.mainwindow.show()
 
         self.checkAdd()
@@ -33,11 +33,9 @@ class app():
         self.blockProperties = {
             "name": self.ui.blockName.text(),
             "displayName": self.ui.blockDisplayName.text(),
-            "texturePath": self.ui.blockTexture.text(),
             "customModelData": self.ui.blockCMD.text(),
             "baseBlock": self.ui.blockBase.text(),
-            "placeSound": self.ui.blockPlaceSound.text(),
-            "breakSound": self.ui.blockBreakSound.text()
+            "lightLevel": str(self.ui.lightLevel.value())
         }
         self.blocks[self.ui.blockName.text()] = self.blockProperties
         
@@ -100,7 +98,7 @@ class app():
             for self.blck in self.blocks.keys():
                 os.mkdir(self.packNamespace + "\\function" + f"\\{self.blck}")
                 with open(f'{self.packNamespace}\\function\\{self.blck}\\place.mcfunction', 'w') as file2:
-                    file2.write("setblock ~ ~ ~ " + self.blocks[self.blck]["baseBlock"] + ' keep\nsummon item_display ~ ~ ~ {Tags:["' + self.ui.packNamespace.text() + f'.{self.blocks[self.blck]["name"]}","' + self.ui.packNamespace.text() + '.custom_block"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0.47f,0f],scale:[1.01f,1.01f,1.01f]},item:{id:"minecraft:item_frame",count:1,components:{"minecraft:custom_model_data":' + self.blocks[self.blck]["customModelData"] + '}}}\n' + 'playsound ' + self.blocks[self.blck]["placeSound"] + ' block @e[type=player,distance=..3] ~ ~ ~ 10')
+                    file2.write("setblock ~ ~ ~ " + self.blocks[self.blck]["baseBlock"] + ' keep\nsummon item_display ~ ~ ~ {brightness:{sky:15,block:' + self.blocks[self.blck]["lightLevel"] + '},Tags:["' + self.ui.packNamespace.text() + f'.{self.blocks[self.blck]["name"]}","' + self.ui.packNamespace.text() + '.custom_block"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0.47f,0f],scale:[1.01f,1.01f,1.01f]},item:{id:"minecraft:item_frame",count:1,components:{"minecraft:custom_model_data":' + self.blocks[self.blck]["customModelData"] + '}}}\n')
                     file2.close()
                 file.write('execute as @s[tag=' + self.ui.packNamespace.text() + '.' + self.blocks[self.blck]["name"] + '] run function ' + self.ui.packNamespace.text() + ':' + self.blocks[self.blck]["name"] + '/place\n')
             
@@ -115,10 +113,8 @@ class app():
                     file2.write('execute unless block ~ ~ ~ ' + self.blocks[self.blck]["baseBlock"] + ' run function ' + self.ui.packNamespace.text() + ':' + self.blocks[self.blck]["name"] + '/break')
                     file2.close()
                 with open(f'{self.packNamespace}\\function\\{self.blck}\\break.mcfunction', 'a') as file3:
-                    file3.write('stopsound @e[type=player,distance=..10] block block.glass.break \n')
                     file3.write('execute as @e[type=item,sort=nearest,limit=1,distance=..2,nbt={OnGround:0b,Age:0s,Item:{id:"' + self.blocks[self.blck]["baseBlock"] + '"}}] run kill @s\n')
                     file3.write('loot spawn ~ ~ ~ loot ' + self.ui.packNamespace.text() + ':' + self.blocks[self.blck]["name"] + '\n')
-                    file3.write('playsound ' + self.blocks[self.blck]["breakSound"] + ' block @e[type=player,distance=..3] ~ ~ ~ 10\n')
                     file3.write('kill @s')
                     file3.close()
                 
