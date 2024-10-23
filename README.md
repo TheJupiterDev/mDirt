@@ -11,6 +11,6 @@ Run main.py. Fill in all the details, press "Generate Pack" when you are ready.
 Note that this will not work properly if you do not have a resource pack properly set up for it.
 
 ### Known Issues
-The `texture path` and `Model` fields do nothing. This is for a later version that will generate the resourcepack for you, but it is not yet implemented.
+None now, I fixed them all :)
 
-The tool was made entirely by me, but the method for adding custom blocks was developed by https://youtube.com/@WASDBuildTeam!
+The tool was made entirely by me, but the method for adding custom blocks was developed by https://youtube.com/@WASDBuildTeam and improved upon by me!
