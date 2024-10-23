@@ -1,7 +1,5 @@
 # Blockker
 
-## Due to recent developments in the datapacking space, there are now better methods of custom blocks! This project is currently being updated to the new methods.
-
 A tool for easily creating custom blocks using Minecraft Datapacks.
 **Only Supported for 1.21.2 and up! No previous versions will be added!**
 
