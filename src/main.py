@@ -1,5 +1,6 @@
 import os
 import sys
+import shutil
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets
 from tkinter import filedialog
@@ -20,6 +21,7 @@ class app():
         self.checkAdd()
         self.checkRemove()
         self.checkGenerate()
+        self.checkResourceEnabled()
 
         self.app.exec()
     
@@ -32,12 +34,38 @@ class app():
     def checkGenerate(self):
         self.ui.buttonGeneratePack.clicked.connect(self.generate)
 
+    def checkResourceEnabled(self):
+        self.ui.blockResourceCheckBox.clicked.connect(self.toggleResource)
+        if self.ui.blockResourceCheckBox.isChecked():
+            self.ui.blockTextureLabel.setEnabled(True)
+            self.ui.blockModelLabel.setEnabled(True)
+            self.ui.blockTexturePath.setEnabled(True)
+            self.ui.blockModel.setEnabled(True)
+        else:
+            self.ui.blockTextureLabel.setEnabled(False)
+            self.ui.blockModelLabel.setEnabled(False)
+            self.ui.blockTexturePath.setEnabled(False)
+            self.ui.blockModel.setEnabled(False)
+    
+    def toggleResource(self):
+        if self.ui.blockResourceCheckBox.isChecked():
+            self.ui.blockTextureLabel.setEnabled(True)
+            self.ui.blockModelLabel.setEnabled(True)
+            self.ui.blockTexturePath.setEnabled(True)
+            self.ui.blockModel.setEnabled(True)
+        else:
+            self.ui.blockTextureLabel.setEnabled(False)
+            self.ui.blockModelLabel.setEnabled(False)
+            self.ui.blockTexturePath.setEnabled(False)
+            self.ui.blockModel.setEnabled(False)
+
     def addBlock(self):
         self.blockProperties = {
             "name": self.ui.blockName.text(),
             "displayName": self.ui.blockDisplayName.text(),
             "customModelData": self.ui.blockCMD.text(),
-            "baseBlock": self.ui.blockBase.text()
+            "baseBlock": self.ui.blockBase.text(),
+            "texturePath": self.ui.blockTexturePath.text()
         }
         self.blocks[self.ui.blockName.text()] = self.blockProperties
         
@@ -49,7 +77,40 @@ class app():
         self.ui.blockList.takeItem(self.curItem)
         print(self.blocks)
     
+    def generateResourcePack(self):
+        self.outputDir = filedialog.askdirectory().replace("/", "\\")
+        self.packDir = os.path.join(self.outputDir, self.ui.packName.text() + "Resource Pack")
+        os.mkdir(self.packDir)
+        os.mkdir(self.packDir + "\\assets")
+        os.mkdir(self.packDir + "\\assets\\minecraft")
+        os.mkdir(self.packDir + "\\assets\\minecraft\\models")
+        os.mkdir(self.packDir + "\\assets\\minecraft\\textures")
+        os.mkdir(self.packDir + "\\assets\\minecraft\\textures\\item")
+        os.mkdir(self.packDir + "\\assets\\minecraft\\models\\item")
+        os.mkdir(self.packDir + "\\assets\\minecraft\\models\\" + self.ui.packNamespace.text())
+        with open(f'{self.packDir}\\pack.mcmeta', 'w') as pack:
+            pack.write('{\n    "pack": {\n        "pack_format": 42,\n        "description": "' + self.ui.packDescription.text() + '"\n    }\n}\n')
+            pack.close()
+        with open(f'{self.packDir}\\assets\\minecraft\\models\\item\\item_frame.json', 'a') as file:
+            file.write('{"parent": "minecraft:item/generated","textures": {"layer0": "minecraft:item/item_frame"},"overrides":[')
+            for block in self.blocks:
+                file.write('{ "predicate": { "custom_model_data": ' + self.blocks[block]["customModelData"] + '}, "model": "' + self.ui.packNamespace.text() + '/' + self.blocks[block]["name"] + '"}')
+                if block != next(reversed(self.blocks.keys())):
+                    file.write(',')
+            file.write(']}')
+            file.close()
+        for block in self.blocks:
+            self.texture = self.packDir + "\\assets\\minecraft\\textures\\item\\" + self.blocks[block]["name"] + ".png"
+            shutil.copy(self.blocks[block]["texturePath"], self.texture)
+            with open(f'{self.packDir}\\assets\\minecraft\\models\\'+ self.ui.packNamespace.text() + '\\' + self.blocks[block]["name"] + '.json', 'w') as file:
+                file.write('{"credit": "Made with Blockker","textures": {"0": "item/' + self.blocks[block]["name"] + '","particle": "item/' + self.blocks[block]["name"] + '"},"elements": [{"from": [0, 0, 0],"to": [16, 16, 16],"faces": {"north": {"uv": [0, 0, 16, 16], "texture": "#0"},"east": {"uv": [0, 0, 16, 16], "texture": "#0"},"south": {"uv": [0, 0, 16, 16], "texture": "#0"},"west": {"uv": [0, 0, 16, 16], "texture": "#0"},"up": {"uv": [0, 0, 16, 16], "texture": "#0"},"down": {"uv": [0, 0, 16, 16], "texture": "#0"}}}],"display": {"thirdperson_righthand": {"rotation": [0, 0, -55],"translation": [0, 2.75, -2.5],"scale": [0.4, 0.4, 0.4]},"thirdperson_lefthand": {"rotation": [0, 0, -55],"translation": [0, 2.75, -2.5],"scale": [0.4, 0.4, 0.4]},"firstperson_righthand": {"rotation": [0, 45, 0],"scale": [0.4, 0.4, 0.4]},"ground": {"translation": [0, 3.25, 0],"scale": [0.4, 0.4, 0.4]},"gui": {"rotation": [28, 45, 0],"scale": [0.6, 0.6, 0.6]}}}')
+                file.close()
+        
+    
     def generate(self):
+
+        if self.ui.blockResourceCheckBox.isChecked():
+            self.generateResourcePack()
 
         self.outputDir = filedialog.askdirectory().replace("/", "\\")
         self.packDir = os.path.join(self.outputDir, self.ui.packName.text())

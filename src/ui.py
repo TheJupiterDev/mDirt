@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'src/ui.ui'
+# Form implementation generated from reading ui file 'lib/main.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(550, 616)
+        MainWindow.resize(926, 616)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
         self.buttonAddBlock.setGeometry(QtCore.QRect(80, 460, 75, 23))
         self.buttonAddBlock.setObjectName("buttonAddBlock")
         self.blockList = QtWidgets.QListWidget(self.centralwidget)
-        self.blockList.setGeometry(QtCore.QRect(280, 290, 256, 192))
+        self.blockList.setGeometry(QtCore.QRect(620, 50, 256, 192))
         self.blockList.setObjectName("blockList")
         self.line = QtWidgets.QFrame(self.centralwidget)
         self.line.setGeometry(QtCore.QRect(540, -10, 21, 761))
@@ -54,10 +54,10 @@ class Ui_MainWindow(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.label_9 = QtWidgets.QLabel(self.centralwidget)
-        self.label_9.setGeometry(QtCore.QRect(380, 270, 47, 13))
+        self.label_9.setGeometry(QtCore.QRect(720, 30, 47, 13))
         self.label_9.setObjectName("label_9")
         self.buttonRemoveBlock = QtWidgets.QPushButton(self.centralwidget)
-        self.buttonRemoveBlock.setGeometry(QtCore.QRect(360, 490, 75, 23))
+        self.buttonRemoveBlock.setGeometry(QtCore.QRect(700, 250, 75, 23))
         self.buttonRemoveBlock.setObjectName("buttonRemoveBlock")
         self.line_2 = QtWidgets.QFrame(self.centralwidget)
         self.line_2.setGeometry(QtCore.QRect(0, 250, 551, 20))
@@ -90,7 +90,7 @@ class Ui_MainWindow(object):
         self.packVersion.setObjectName("packVersion")
         self.packVersion.addItem("")
         self.buttonGeneratePack = QtWidgets.QPushButton(self.centralwidget)
-        self.buttonGeneratePack.setGeometry(QtCore.QRect(210, 550, 91, 23))
+        self.buttonGeneratePack.setGeometry(QtCore.QRect(690, 390, 91, 23))
         self.buttonGeneratePack.setObjectName("buttonGeneratePack")
         self.label_14 = QtWidgets.QLabel(self.centralwidget)
         self.label_14.setGeometry(QtCore.QRect(150, 10, 281, 16))
@@ -99,9 +99,30 @@ class Ui_MainWindow(object):
         self.label_15.setGeometry(QtCore.QRect(190, 30, 131, 16))
         self.label_15.setObjectName("label_15")
         self.status = QtWidgets.QLabel(self.centralwidget)
-        self.status.setEnabled(True)
-        self.status.setGeometry(QtCore.QRect(240, 580, 47, 13))
+        self.status.setEnabled(False)
+        self.status.setGeometry(QtCore.QRect(720, 420, 47, 13))
+        self.status.setText("")
         self.status.setObjectName("status")
+        self.blockTextureLabel = QtWidgets.QLabel(self.centralwidget)
+        self.blockTextureLabel.setEnabled(False)
+        self.blockTextureLabel.setGeometry(QtCore.QRect(290, 320, 47, 13))
+        self.blockTextureLabel.setObjectName("blockTextureLabel")
+        self.blockTexturePath = QtWidgets.QLineEdit(self.centralwidget)
+        self.blockTexturePath.setEnabled(False)
+        self.blockTexturePath.setGeometry(QtCore.QRect(340, 320, 113, 20))
+        self.blockTexturePath.setObjectName("blockTexturePath")
+        self.blockResourceCheckBox = QtWidgets.QCheckBox(self.centralwidget)
+        self.blockResourceCheckBox.setGeometry(QtCore.QRect(290, 290, 141, 17))
+        self.blockResourceCheckBox.setObjectName("blockResourceCheckBox")
+        self.blockModelLabel = QtWidgets.QLabel(self.centralwidget)
+        self.blockModelLabel.setEnabled(False)
+        self.blockModelLabel.setGeometry(QtCore.QRect(290, 350, 47, 13))
+        self.blockModelLabel.setObjectName("blockModelLabel")
+        self.blockModel = QtWidgets.QComboBox(self.centralwidget)
+        self.blockModel.setEnabled(False)
+        self.blockModel.setGeometry(QtCore.QRect(340, 350, 69, 22))
+        self.blockModel.setObjectName("blockModel")
+        self.blockModel.addItem("")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -135,7 +156,11 @@ class Ui_MainWindow(object):
         self.buttonGeneratePack.setText(_translate("MainWindow", "Generate Pack"))
         self.label_14.setText(_translate("MainWindow", "Blocker - A Datapack Tool for custom blocks"))
         self.label_15.setText(_translate("MainWindow", "Made by Jupiter Dev 2024"))
-        self.status.setText(_translate("MainWindow", "status"))
+        self.blockTextureLabel.setText(_translate("MainWindow", "Texture:"))
+        self.blockTexturePath.setPlaceholderText(_translate("MainWindow", "D:/textures/main.png"))
+        self.blockResourceCheckBox.setText(_translate("MainWindow", "Create a Resource Pack?"))
+        self.blockModelLabel.setText(_translate("MainWindow", "Model:"))
+        self.blockModel.setItemText(0, _translate("MainWindow", "Block"))
 
 
 if __name__ == "__main__":
