@@ -7,6 +7,7 @@ A tool for easily creating custom blocks using Minecraft Datapacks.
 Download the latest release, and run it.
 Fill in all the details, press "Generate Pack" when you are ready.
 Note that this will not work properly if you do not have a resource pack properly set up for it.
+ArcherCat8 did this
 
 ## How to setup a resource pack
 ### _Note that in v1.1.0 of Blockker, it will create the resource pack for you._
