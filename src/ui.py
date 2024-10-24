@@ -96,7 +96,7 @@ class Ui_MainWindow(object):
         self.label_14.setGeometry(QtCore.QRect(150, 10, 281, 16))
         self.label_14.setObjectName("label_14")
         self.label_15 = QtWidgets.QLabel(self.centralwidget)
-        self.label_15.setGeometry(QtCore.QRect(190, 30, 131, 16))
+        self.label_15.setGeometry(QtCore.QRect(170, 30, 131, 16))
         self.label_15.setObjectName("label_15")
         self.status = QtWidgets.QLabel(self.centralwidget)
         self.status.setEnabled(False)
@@ -133,7 +133,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Blockker - A Datapack Tool for custom blocks"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "mDirt - A Datapack Tool for custom blocks"))
         self.label.setText(_translate("MainWindow", "Name:"))
         self.blockName.setPlaceholderText(_translate("MainWindow", "ruby_ore"))
         self.blockCMD.setPlaceholderText(_translate("MainWindow", "84231"))
@@ -154,7 +154,7 @@ class Ui_MainWindow(object):
         self.label_13.setText(_translate("MainWindow", "Version:"))
         self.packVersion.setItemText(0, _translate("MainWindow", "1.21.3"))
         self.buttonGeneratePack.setText(_translate("MainWindow", "Generate Pack"))
-        self.label_14.setText(_translate("MainWindow", "Blocker - A Datapack Tool for custom blocks"))
+        self.label_14.setText(_translate("MainWindow", "mDirt - A Datapack Tool for custom blocks"))
         self.label_15.setText(_translate("MainWindow", "Made by Jupiter Dev 2024"))
         self.blockTextureLabel.setText(_translate("MainWindow", "Texture:"))
         self.blockTexturePath.setPlaceholderText(_translate("MainWindow", "D:/textures/main.png"))
