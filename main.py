@@ -2,6 +2,7 @@ import os
 import sys
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets
+from tkinter import filedialog
 
 class app():
     def __init__(self):
@@ -47,7 +48,8 @@ class app():
         print(self.blocks)
     
     def generate(self):
-        self.outputDir = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "output")
+
+        self.outputDir = filedialog.askdirectory().replace("/", "\\")
         self.packDir = os.path.join(self.outputDir, self.ui.packName.text())
         os.mkdir(self.packDir)
         os.mkdir(self.packDir + "\\data")
