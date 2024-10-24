@@ -34,8 +34,7 @@ class app():
             "name": self.ui.blockName.text(),
             "displayName": self.ui.blockDisplayName.text(),
             "customModelData": self.ui.blockCMD.text(),
-            "baseBlock": self.ui.blockBase.text(),
-            "lightLevel": str(self.ui.lightLevel.value())
+            "baseBlock": self.ui.blockBase.text()
         }
         self.blocks[self.ui.blockName.text()] = self.blockProperties
         
@@ -98,7 +97,7 @@ class app():
             for self.blck in self.blocks.keys():
                 os.mkdir(self.packNamespace + "\\function" + f"\\{self.blck}")
                 with open(f'{self.packNamespace}\\function\\{self.blck}\\place.mcfunction', 'w') as file2:
-                    file2.write("setblock ~ ~ ~ " + self.blocks[self.blck]["baseBlock"] + ' keep\nsummon item_display ~ ~ ~ {brightness:{sky:15,block:' + self.blocks[self.blck]["lightLevel"] + '},Tags:["' + self.ui.packNamespace.text() + f'.{self.blocks[self.blck]["name"]}","' + self.ui.packNamespace.text() + '.custom_block"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0.47f,0f],scale:[1.01f,1.01f,1.01f]},item:{id:"minecraft:item_frame",count:1,components:{"minecraft:custom_model_data":' + self.blocks[self.blck]["customModelData"] + '}}}\n')
+                    file2.write("setblock ~ ~ ~ " + self.blocks[self.blck]["baseBlock"] + ' keep\nsummon item_display ~ ~ ~ {brightness:{sky:15,block:0},Tags:["' + self.ui.packNamespace.text() + f'.{self.blocks[self.blck]["name"]}","' + self.ui.packNamespace.text() + '.custom_block"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0.469f,0f],scale:[1.001f,1.001f,1.001f]},item:{id:"minecraft:item_frame",count:1,components:{"minecraft:custom_model_data":' + self.blocks[self.blck]["customModelData"] + '}}}\n')
                     file2.close()
                 file.write('execute as @s[tag=' + self.ui.packNamespace.text() + '.' + self.blocks[self.blck]["name"] + '] run function ' + self.ui.packNamespace.text() + ':' + self.blocks[self.blck]["name"] + '/place\n')
             
