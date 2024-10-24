@@ -5,9 +5,9 @@ A tool for easily creating custom blocks using Minecraft Datapacks.
 
 ## How to use
 _Exe builds will release when the project comes out of beta._
-You need Python 3.12.4 and PyQt5 (pip install PyQt5)
-Download the code, and create a folder titled `output` in the root directory.
-Run main.py. Fill in all the details, press "Generate Pack" when you are ready.
+You need Python 3.13.0 and PyQt5 (pip install PyQt5)
+Download the code, and run main.py. 
+Fill in all the details, press "Generate Pack" when you are ready.
 Note that this will not work properly if you do not have a resource pack properly set up for it.
 
 ### Known Issues
