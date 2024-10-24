@@ -1,4 +1,5 @@
-# Blockker
+# mDirt
+## making Datapacks Is Really Tedious
 
 A tool for easily creating custom blocks using Minecraft Datapacks.
 **Only Supported for 1.21.3 and up! No previous versions will be added!**
