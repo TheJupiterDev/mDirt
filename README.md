@@ -13,6 +13,7 @@ A tool for easily creating custom blocks using Minecraft Datapacks.
 Download the latest release, and run it.
 If you don't understand a field, hover over it and read the tooltip!
 Fill in all the details, press "Generate Pack" when you are ready.
+To get your blocks in game, run /function YOURNAMESPACE:give_items
 
 ### Known Issues
 There are no placing sounds, this will be fixed soon.
