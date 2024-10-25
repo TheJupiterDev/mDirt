@@ -13,6 +13,33 @@
   <property name="windowTitle">
    <string>mDirt - A Datapack Tool for custom blocks</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>mDirt.ico</normaloff>mDirt.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow{
+background-color: rgb(53,53,53);
+}
+QWidget{
+background-color: rgb(53,53,53);
+}
+QPushButton, QComboBox, QLabel, QCheckBox{
+background-color: rgb(53,53,53);
+color: rgb(255, 255, 255);
+}
+QLineEdit, QListWidget{
+background-color: rgb(25, 25, 25);
+color: rgb(255, 255, 255);
+}
+QMenuBar, QMenu, QAction{
+background-color: rgb(53, 53, 53);
+color: rgb(255,255,255);
+}
+QAction{
+highlight-color: rgb(255,255,255);
+}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -36,6 +63,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The name the program and the pack recognizes.&lt;br/&gt;Supports lowercase characters &amp;amp; underscores.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="placeholderText">
      <string>ruby_ore</string>
     </property>
@@ -48,6 +78,9 @@
       <width>113</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The custom model data of your block.&lt;br/&gt;It is convention to have a specific number you put before the custom model data&lt;br/&gt;in your pack. For instance, I might use `890` as a prefix. My first item would be&lt;br/&gt;8901, then 8902, etc.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="placeholderText">
      <string>84231</string>
@@ -74,6 +107,9 @@
       <width>113</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The name the block will show in your inventory.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="placeholderText">
      <string>Ruby Ore</string>
@@ -114,6 +150,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The base block. This will determine the mining speed, what kind of tool you&lt;/p&gt;&lt;p&gt;need to mine it, break/place/walking sounds, and more. Any minecraft block works here.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -130,6 +169,9 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Adds the block to the pack!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="text">
      <string>Add Block</string>
     </property>
@@ -142,6 +184,9 @@
       <width>256</width>
       <height>192</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A list of all custom blocks you have created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="Line" name="line">
@@ -178,6 +223,9 @@
       <width>75</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click a block from above, then press Remove to delete it.&lt;br/&gt;This action cannot be undone.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="text">
      <string>Remove</string>
@@ -218,6 +266,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The Name of the Datapack &amp;amp; Resource Pack.&lt;br/&gt;Supports A-Z, a-z, spaces, _, -, !.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="placeholderText">
      <string>The Ruby Pack</string>
     </property>
@@ -243,6 +294,9 @@
       <width>113</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The namespace. Only supports lowercase letters &amp;amp; underscores.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="placeholderText">
      <string>ores</string>
@@ -270,6 +324,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>The Description! Almost all characters are supported.</string>
+    </property>
     <property name="placeholderText">
      <string>Adds new ores to Minecraft!</string>
     </property>
@@ -296,6 +353,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The version the pack will be made for.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <item>
      <property name="text">
       <string>1.21.3</string>
@@ -310,6 +370,9 @@
       <width>91</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Generate the Pack(s)!&lt;br/&gt;Press only when you are done!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="text">
      <string>Generate Pack</string>
@@ -331,14 +394,14 @@
    <widget class="QLabel" name="label_15">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>140</x>
       <y>30</y>
-      <width>131</width>
+      <width>221</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Made by Jupiter Dev 2024</string>
+     <string>Made by Jupiter Dev &amp; JustJoshinDev 2024</string>
     </property>
    </widget>
    <widget class="QLabel" name="status">
@@ -385,6 +448,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The path to the texture you would like the block to have. As of now, you can&lt;/p&gt;&lt;p&gt;only have one texture for the entire block. &lt;span style=&quot; font-style:italic;&quot;&gt;This is being changed soon!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="placeholderText">
      <string>D:/textures/main.png</string>
     </property>
@@ -397,6 +463,9 @@
       <width>141</width>
       <height>17</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Highly Recomended!&lt;/span&gt;&lt;br/&gt;Whether or not you want to create a resource pack with the datapack.&lt;br/&gt;This is highly reccommended, because it will only work without this&lt;/p&gt;&lt;p&gt;if you have a resource pack already setup in a specific way.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="text">
      <string>Create a Resource Pack?</string>
@@ -430,6 +499,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The block model! As of now, you can only create full blocks, but&lt;/p&gt;&lt;p&gt;slabs &amp;amp; stairs are planned for some point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <item>
      <property name="text">
       <string>Block</string>
@@ -459,11 +531,47 @@
      </rect>
     </property>
     <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;The item dropped when the block is broken.&lt;br/&gt;When empty, it will drop itself.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The item dropped when the block is broken.&lt;br/&gt;When empty, it will drop itself.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="placeholderText">
+     <string>minecraft:diamond</string>
     </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>926</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionImport_from_mrdt"/>
+    <addaction name="actionExport_to_mrdt_2"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <action name="actionImport_from_mrdt">
+   <property name="text">
+    <string>Import from .mrdt</string>
+   </property>
+  </action>
+  <action name="actiont">
+   <property name="text">
+    <string>t</string>
+   </property>
+  </action>
+  <action name="actionExport_to_mrdt_2">
+   <property name="text">
+    <string>Export to .mrdt</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
