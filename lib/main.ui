@@ -62,12 +62,15 @@ background-color: rgb(95, 95, 95);
      <rect>
       <x>70</x>
       <y>320</y>
-      <width>113</width>
+      <width>181</width>
       <height>20</height>
      </rect>
     </property>
     <property name="toolTip">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The name the program and the pack recognizes.&lt;br/&gt;Supports lowercase characters &amp;amp; underscores.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhNone</set>
     </property>
     <property name="placeholderText">
      <string>ruby_ore</string>
@@ -78,7 +81,7 @@ background-color: rgb(95, 95, 95);
      <rect>
       <x>130</x>
       <y>380</y>
-      <width>113</width>
+      <width>121</width>
       <height>20</height>
      </rect>
     </property>
@@ -107,7 +110,7 @@ background-color: rgb(95, 95, 95);
      <rect>
       <x>110</x>
       <y>290</y>
-      <width>113</width>
+      <width>141</width>
       <height>20</height>
      </rect>
     </property>
@@ -167,7 +170,7 @@ background-color: rgb(95, 95, 95);
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>460</y>
+      <y>520</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -301,6 +304,9 @@ background-color: rgb(95, 95, 95);
     <property name="toolTip">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The namespace. Only supports lowercase letters &amp;amp; underscores.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhNone</set>
+    </property>
     <property name="placeholderText">
      <string>ores</string>
     </property>
@@ -429,8 +435,8 @@ background-color: rgb(95, 95, 95);
     </property>
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>390</y>
+      <x>370</x>
+      <y>360</y>
       <width>47</width>
       <height>13</height>
      </rect>
@@ -442,8 +448,8 @@ background-color: rgb(95, 95, 95);
    <widget class="QCheckBox" name="blockResourceCheckBox">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>320</y>
+      <x>320</x>
+      <y>290</y>
       <width>141</width>
       <height>17</height>
      </rect>
@@ -461,8 +467,8 @@ background-color: rgb(95, 95, 95);
     </property>
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>350</y>
+      <x>320</x>
+      <y>320</y>
       <width>47</width>
       <height>13</height>
      </rect>
@@ -477,8 +483,8 @@ background-color: rgb(95, 95, 95);
     </property>
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>350</y>
+      <x>370</x>
+      <y>320</y>
       <width>69</width>
       <height>22</height>
      </rect>
@@ -510,7 +516,7 @@ background-color: rgb(95, 95, 95);
      <rect>
       <x>70</x>
       <y>410</y>
-      <width>113</width>
+      <width>181</width>
       <height>20</height>
      </rect>
     </property>
@@ -524,8 +530,8 @@ background-color: rgb(95, 95, 95);
    <widget class="QLabel" name="topFace">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>420</y>
+      <x>370</x>
+      <y>390</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -540,8 +546,8 @@ background-color: rgb(95, 95, 95);
    <widget class="QLabel" name="rightFace">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>470</y>
+      <x>420</x>
+      <y>440</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -556,8 +562,8 @@ background-color: rgb(95, 95, 95);
    <widget class="QLabel" name="bottomFace">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>520</y>
+      <x>370</x>
+      <y>490</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -572,8 +578,8 @@ background-color: rgb(95, 95, 95);
    <widget class="QLabel" name="leftFace">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>470</y>
+      <x>320</x>
+      <y>440</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -588,8 +594,8 @@ background-color: rgb(95, 95, 95);
    <widget class="QLabel" name="backFace">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>470</y>
+      <x>370</x>
+      <y>440</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -604,8 +610,8 @@ background-color: rgb(95, 95, 95);
    <widget class="QLabel" name="frontFace">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>470</y>
+      <x>470</x>
+      <y>440</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -620,11 +626,14 @@ background-color: rgb(95, 95, 95);
    <widget class="QPushButton" name="topFaceBtn">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>420</y>
+      <x>370</x>
+      <y>390</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The Top face of the block&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
@@ -642,11 +651,14 @@ background-color: rgb(95, 95, 95);
    <widget class="QPushButton" name="backFaceBtn">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>470</y>
+      <x>370</x>
+      <y>440</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The Back face of the block&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
@@ -664,11 +676,14 @@ background-color: rgb(95, 95, 95);
    <widget class="QPushButton" name="rightFaceBtn">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>470</y>
+      <x>420</x>
+      <y>440</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The Right face of the block&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
@@ -686,11 +701,14 @@ background-color: rgb(95, 95, 95);
    <widget class="QPushButton" name="leftFaceBtn">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>470</y>
+      <x>320</x>
+      <y>440</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The Left face of the block&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
@@ -708,11 +726,14 @@ background-color: rgb(95, 95, 95);
    <widget class="QPushButton" name="frontFaceBtn">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>470</y>
+      <x>470</x>
+      <y>440</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The Front face of the block&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
@@ -730,11 +751,14 @@ background-color: rgb(95, 95, 95);
    <widget class="QPushButton" name="bottomFaceBtn">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>520</y>
+      <x>370</x>
+      <y>490</y>
       <width>41</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The Bottom face of the block&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
@@ -747,6 +771,51 @@ background-color: rgb(95, 95, 95);
     </property>
     <property name="flat">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>470</y>
+      <width>81</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Should your block be directional?&lt;br/&gt;When checked, it will be placed like a log.&lt;br/&gt;Otherwise, it will always face up.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="text">
+     <string>Directional?</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>440</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Place Sound:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>440</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The sound your block should play when it is placed.&lt;br/&gt;Currently only supports default minecraft sounds,&lt;/p&gt;&lt;p&gt;but support for custom sounds is coming soon&lt;span style=&quot; vertical-align:super;&quot;&gt;TM&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="placeholderText">
+     <string>minecraft:block.stone.place</string>
     </property>
    </widget>
   </widget>
