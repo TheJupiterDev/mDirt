@@ -11,6 +11,7 @@ A tool for easily creating custom blocks using Minecraft Datapacks.
 
 ## How to use
 Download the latest release, and run it.
+If you don't understand a field, hover over it and read the tooltip!
 Fill in all the details, press "Generate Pack" when you are ready.
 
 ### Known Issues
