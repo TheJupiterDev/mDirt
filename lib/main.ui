@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>926</width>
-    <height>616</height>
+    <height>751</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,6 +38,9 @@ color: rgb(255,255,255);
 }
 QAction{
 highlight-color: rgb(255,255,255);
+}
+QLabel #a, #backFace, #bottomFace, #leftFace, #rightFace, #topFace, #frontFace{
+background-color: rgb(95, 95, 95);
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -195,7 +198,7 @@ highlight-color: rgb(255,255,255);
       <x>540</x>
       <y>-10</y>
       <width>21</width>
-      <height>761</height>
+      <height>931</height>
      </rect>
     </property>
     <property name="orientation">
@@ -410,7 +413,7 @@ highlight-color: rgb(255,255,255);
     </property>
     <property name="geometry">
      <rect>
-      <x>720</x>
+      <x>710</x>
       <y>420</y>
       <width>47</width>
       <height>13</height>
@@ -426,40 +429,21 @@ highlight-color: rgb(255,255,255);
     </property>
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>320</y>
+      <x>320</x>
+      <y>390</y>
       <width>47</width>
       <height>13</height>
      </rect>
     </property>
     <property name="text">
-     <string>Texture:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="blockTexturePath">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>340</x>
-      <y>320</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The path to the texture you would like the block to have. As of now, you can&lt;/p&gt;&lt;p&gt;only have one texture for the entire block. &lt;span style=&quot; font-style:italic;&quot;&gt;This is being changed soon!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="placeholderText">
-     <string>D:/textures/main.png</string>
+     <string>Texture</string>
     </property>
    </widget>
    <widget class="QCheckBox" name="blockResourceCheckBox">
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>290</y>
+      <y>320</y>
       <width>141</width>
       <height>17</height>
      </rect>
@@ -535,6 +519,234 @@ highlight-color: rgb(255,255,255);
     </property>
     <property name="placeholderText">
      <string>minecraft:diamond</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="topFace">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>420</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::LinksAccessibleByMouse</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="rightFace">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>470</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::LinksAccessibleByMouse</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="bottomFace">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>520</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::LinksAccessibleByMouse</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="leftFace">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>470</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::LinksAccessibleByMouse</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="backFace">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>470</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::LinksAccessibleByMouse</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="frontFace">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>470</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::LinksAccessibleByMouse</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="topFaceBtn">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>420</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="backFaceBtn">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>470</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rightFaceBtn">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>470</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="leftFaceBtn">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>470</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="frontFaceBtn">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>470</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bottomFaceBtn">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>520</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
