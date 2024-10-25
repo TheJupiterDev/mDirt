@@ -15,6 +15,8 @@ If you don't understand a field, hover over it and read the tooltip!
 Fill in all the details, press "Generate Pack" when you are ready.
 
 ### Known Issues
-None now! I fixed them all :)
+There are no placing sounds, this will be fixed soon.
+The tooltips in the app look bad. This is being fixed.
+The break particles are not from the custom block, but from the base block. _This will be fixed if possible._
 
 The tool was made entirely by me, but the method for adding custom blocks was developed by https://youtube.com/@WASDBuildTeam and improved upon by me!
