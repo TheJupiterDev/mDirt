@@ -9,36 +9,36 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import sys
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtGui import QPalette, QColor
 
-app = QApplication([])
-
-app.setStyle("Fusion")
-
-palette = QPalette()
-palette.setColor(QPalette.Window, QColor(53, 53, 53))
-palette.setColor(QPalette.WindowText, Qt.white)
-palette.setColor(QPalette.Base, QColor(25, 25, 25))
-palette.setColor(QPalette.AlternateBase, QColor(53, 53, 53))
-palette.setColor(QPalette.ToolTipBase, Qt.black)
-palette.setColor(QPalette.ToolTipText, Qt.white)
-palette.setColor(QPalette.Text, Qt.white)
-palette.setColor(QPalette.Button, QColor(53, 53, 53))
-palette.setColor(QPalette.ButtonText, Qt.white)
-palette.setColor(QPalette.BrightText, Qt.red)
-palette.setColor(QPalette.Link, QColor(42, 130, 218))
-palette.setColor(QPalette.Highlight, QColor(42, 130, 218))
-palette.setColor(QPalette.HighlightedText, Qt.black)
-app.setPalette(palette)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(926, 616)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("lib\\mDirt.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
+        MainWindow.setStyleSheet("QMainWindow{\n"
+"background-color: rgb(53,53,53);\n"
+"}\n"
+"QWidget{\n"
+"background-color: rgb(53,53,53);\n"
+"}\n"
+"QPushButton, QComboBox, QLabel, QCheckBox{\n"
+"background-color: rgb(53,53,53);\n"
+"color: rgb(255, 255, 255);\n"
+"}\n"
+"QLineEdit, QListWidget{\n"
+"background-color: rgb(25, 25, 25);\n"
+"color: rgb(255, 255, 255);\n"
+"}\n"
+"QMenuBar, QMenu, QAction{\n"
+"background-color: rgb(53, 53, 53);\n"
+"color: rgb(255,255,255);\n"
+"}\n"
+"QAction{\n"
+"highlight-color: rgb(255,255,255);\n"
+"}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -157,6 +157,21 @@ class Ui_MainWindow(object):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.menuBar = QtWidgets.QMenuBar(MainWindow)
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 926, 21))
+        self.menuBar.setObjectName("menuBar")
+        self.menuFile = QtWidgets.QMenu(self.menuBar)
+        self.menuFile.setObjectName("menuFile")
+        MainWindow.setMenuBar(self.menuBar)
+        self.actionImport_from_mrdt = QtWidgets.QAction(MainWindow)
+        self.actionImport_from_mrdt.setObjectName("actionImport_from_mrdt")
+        self.actiont = QtWidgets.QAction(MainWindow)
+        self.actiont.setObjectName("actiont")
+        self.actionExport_to_mrdt_2 = QtWidgets.QAction(MainWindow)
+        self.actionExport_to_mrdt_2.setObjectName("actionExport_to_mrdt_2")
+        self.menuFile.addAction(self.actionImport_from_mrdt)
+        self.menuFile.addAction(self.actionExport_to_mrdt_2)
+        self.menuBar.addAction(self.menuFile.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -209,6 +224,10 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "Drop:"))
         self.blockDrop.setToolTip(_translate("MainWindow", "<html><head/><body><p>The item dropped when the block is broken.<br/>When empty, it will drop itself.</p></body></html>"))
         self.blockDrop.setPlaceholderText(_translate("MainWindow", "minecraft:diamond"))
+        self.menuFile.setTitle(_translate("MainWindow", "File"))
+        self.actionImport_from_mrdt.setText(_translate("MainWindow", "Import from .mrdt"))
+        self.actiont.setText(_translate("MainWindow", "t"))
+        self.actionExport_to_mrdt_2.setText(_translate("MainWindow", "Export to .mrdt"))
 
 
 if __name__ == "__main__":
