@@ -65,7 +65,8 @@ class app():
             "displayName": self.ui.blockDisplayName.text(),
             "customModelData": self.ui.blockCMD.text(),
             "baseBlock": self.ui.blockBase.text(),
-            "texturePath": self.ui.blockTexturePath.text()
+            "texturePath": self.ui.blockTexturePath.text(),
+            "blockDrop": self.ui.blockDrop.text()
         }
         self.blocks[self.ui.blockName.text()] = self.blockProperties
         
@@ -196,7 +197,11 @@ class app():
 
         for self.blck in self.blocks.keys():
             with open(f'{self.packNamespace}\\loot_table\\{self.blocks[self.blck]["name"]}.json', 'w') as file:
-                file.write('{"pools": [{"rolls": 1,"entries": [{"type": "minecraft:item","name": "minecraft:item_frame"}],"functions": [{"function": "minecraft:set_components","components": {"minecraft:custom_model_data": ' + self.blocks[self.blck]["customModelData"] + ',"minecraft:custom_name": "{\\"italic\\":false,\\"text\\":\\"' + self.blocks[self.blck]["displayName"] + '\\"}","minecraft:entity_data": {"id": "minecraft:item_frame","Fixed": true,"Invisible": true,"Silent": true,"Invulnerable": true,"Facing": 1,"Tags": ["' + self.ui.packNamespace.text() + '.item_frame_block","' + self.ui.packNamespace.text() + '.' + self.blocks[self.blck]["name"] + '"]}}}]}]}')
+                if self.blocks[self.blck]["blockDrop"] == "":
+                    file.write('{"pools": [{"rolls": 1,"entries": [{"type": "minecraft:item","name": "minecraft:item_frame"}],"functions": [{"function": "minecraft:set_components","components": {"minecraft:custom_model_data": ' + self.blocks[self.blck]["customModelData"] + ',"minecraft:custom_name": "{\\"italic\\":false,\\"text\\":\\"' + self.blocks[self.blck]["displayName"] + '\\"}","minecraft:entity_data": {"id": "minecraft:item_frame","Fixed": true,"Invisible": true,"Silent": true,"Invulnerable": true,"Facing": 1,"Tags": ["' + self.ui.packNamespace.text() + '.item_frame_block","' + self.ui.packNamespace.text() + '.' + self.blocks[self.blck]["name"] + '"]}}}]}]}')
+                else:
+                    file.write('{"pools": [{"rolls": 1,"entries": [{"type": "minecraft:item","name": "' + self.blocks[self.blck]["blockDrop"] + '"}]}]}')
+                
                 file.close()
         
 
