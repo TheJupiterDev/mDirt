@@ -4,6 +4,9 @@
 A tool for easily creating custom blocks using Minecraft Datapacks.
 **Only Supported for 1.21.3 and up! No previous versions will be added!**
 
+## Next Update: v1.4.0
+## Release Date: undetermined
+
 ![alt text](https://github.com/TheJupiterDev/Blockker/blob/main/lib/2024-10-24_16.08.13.png)
 ![alt text](https://github.com/TheJupiterDev/Blockker/blob/main/lib/2024-10-24_16.08.35.png)
 ![alt text](https://github.com/TheJupiterDev/mDirt/blob/main/lib/Screenshot%202024-10-25%20080810.png)
