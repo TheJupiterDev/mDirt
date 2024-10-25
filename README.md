@@ -17,6 +17,7 @@ To get your blocks in game, run /function YOURNAMESPACE:give_items
 
 ## In Progress
 - MacOS native binary (@JustJoshinDev)
+- Error Handling
 
 ### Known Issues
 There are no placing sounds, this will be fixed soon.
