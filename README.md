@@ -6,7 +6,7 @@ A tool for easily creating custom blocks using Minecraft Datapacks.
 
 ![alt text](https://github.com/TheJupiterDev/Blockker/blob/main/lib/2024-10-24_16.08.13.png)
 ![alt text](https://github.com/TheJupiterDev/Blockker/blob/main/lib/2024-10-24_16.08.35.png)
-![alt text](https://github.com/TheJupiterDev/Blockker/blob/main/lib/Screenshot%202024-10-24%20160157.png)
+![alt text](https://github.com/TheJupiterDev/mDirt/blob/main/lib/Screenshot%202024-10-25%20080810.png)
 
 
 ## How to use
