@@ -1,6 +1,8 @@
 # mDirt
 ## making Datapacks Is Really Tedious
 
+### Notice: v1.4.0 has major issues! I reccommend using 1.3.0 until I can patch it!
+
 A tool for easily creating custom blocks using Minecraft Datapacks.
 **Only Supported for 1.21.3 and up! No previous versions will be added!**
 
