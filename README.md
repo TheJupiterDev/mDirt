@@ -16,9 +16,8 @@ Fill in all the details, press "Generate Pack" when you are ready.
 To get your blocks in game, run /function YOURNAMESPACE:give_items
 
 ## Update plan
-- v1.6.0 will release within a week, coming with error handling & major UI improvements.
-- After that, v1 of mDirt will be **complete**!
-- v2.0.0 will then be coming within some amount of time, coming with a complete overhaul to the entire application, and adding support for making custom items.
+- v1 of mDirt is now Feature Complete! There will possibly be bug fixes & UI changes, but it is now done!
+- v2.0.0 is now in development, coming with a complete overhaul to the entire application, and adding support for making custom items.
 
 ## In Progress
 - MacOS native binary coming for v2.0 (@JustJoshinDev)
