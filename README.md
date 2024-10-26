@@ -16,7 +16,7 @@ Fill in all the details, press "Generate Pack" when you are ready.
 To get your blocks in game, run /function YOURNAMESPACE:give_items
 
 ## In Progress
-- MacOS native binary (@JustJoshinDev)
+- MacOS native binary coming after v2.0 (@JustJoshinDev)
 - Error Handling
 
 ### Known Issues
