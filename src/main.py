@@ -144,7 +144,8 @@ class app():
             "baseBlock": self.ui.blockBase.text(),
             "blockDrop": self.ui.blockDrop.text(),
             "texturePaths": self.texture,
-            "textures": self.textureNames
+            "textures": self.textureNames,
+            "directional": self.ui.directionalCheck.isChecked()
         }
 
         self.blocks[self.blockProperties["name"]] = self.blockProperties
@@ -161,8 +162,8 @@ class app():
         self.ui.blockBase.setText("")
         self.ui.blockCMD.setText("")
         self.ui.blockDrop.setText("")
-        self.ui.lineEdit.setText("")
-        self.ui.checkBox.setChecked(False)
+        self.ui.placeSound.setText("")
+        self.ui.directionalCheck.setChecked(False)
         self.ui.topFace.clear()
         self.ui.bottomFace.clear()
         self.ui.rightFace.clear()
@@ -264,8 +265,17 @@ class app():
         with open(f'{self.packNamespace}\\function\\check_placed_item_frame.mcfunction', 'a') as file:
             for self.blck in self.blocks.keys():
                 os.mkdir(self.packNamespace + "\\function" + f"\\{self.blck}")
-                with open(f'{self.packNamespace}\\function\\{self.blck}\\place.mcfunction', 'w') as file2:
-                    file2.write("setblock ~ ~ ~ " + self.blocks[self.blck]["baseBlock"] + ' keep\nsummon item_display ~ ~ ~ {brightness:{sky:15,block:0},Tags:["' + self.nameSpace + f'.{self.blocks[self.blck]["name"]}","' + self.nameSpace + '.custom_block"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0.469f,0f],scale:[1.001f,1.001f,1.001f]},item:{id:"minecraft:item_frame",count:1,components:{"minecraft:custom_model_data":' + self.blocks[self.blck]["customModelData"] + '}}}\n')
+                with open(f'{self.packNamespace}\\function\\{self.blck}\\place.mcfunction', 'a') as file2:
+                    file2.write("setblock ~ ~ ~ " + self.blocks[self.blck]["baseBlock"] + ' keep\n')
+                    if self.blocks[self.block]["directional"]:
+                        file2.write('execute at @p if entity @p[y_rotation=135..-135,x_rotation=-45..45] at @s run summon item_display ~ ~0.469 ~-0.469 {Rotation:[0F,90F],brightness:{sky:15,block:0},Tags:["' + self.nameSpace + f'.{self.blocks[self.blck]["name"]}","' + self.nameSpace + '.custom_block"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0.469f,0f],scale:[1.001f,1.001f,1.001f]},item:{id:"minecraft:item_frame",count:1,components:{"minecraft:custom_model_data":' + self.blocks[self.blck]["customModelData"] + '}}}\n')
+                        file2.write('execute at @p if entity @p[y_rotation=-135..-45,x_rotation=-45..45] at @s run summon item_display ~0.469 ~0.469 ~ {Rotation:[90F,90F],brightness:{sky:15,block:0},Tags:["' + self.nameSpace + f'.{self.blocks[self.blck]["name"]}","' + self.nameSpace + '.custom_block"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0.469f,0f],scale:[1.001f,1.001f,1.001f]},item:{id:"minecraft:item_frame",count:1,components:{"minecraft:custom_model_data":' + self.blocks[self.blck]["customModelData"] + '}}}\n')
+                        file2.write('execute at @p if entity @p[y_rotation=-45..45,x_rotation=-45..45] at @s run summon item_display ~ ~0.469 ~0.469 {Rotation:[180F,90F],brightness:{sky:15,block:0},Tags:["' + self.nameSpace + f'.{self.blocks[self.blck]["name"]}","' + self.nameSpace + '.custom_block"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0.469f,0f],scale:[1.001f,1.001f,1.001f]},item:{id:"minecraft:item_frame",count:1,components:{"minecraft:custom_model_data":' + self.blocks[self.blck]["customModelData"] + '}}}\n')
+                        file2.write('execute at @p if entity @p[y_rotation=45..135,x_rotation=-45..45] at @s run summon item_display ~-0.469 ~0.469 ~ {Rotation:[90F,-90F],brightness:{sky:15,block:0},Tags:["' + self.nameSpace + f'.{self.blocks[self.blck]["name"]}","' + self.nameSpace + '.custom_block"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0.469f,0f],scale:[1.001f,1.001f,1.001f]},item:{id:"minecraft:item_frame",count:1,components:{"minecraft:custom_model_data":' + self.blocks[self.blck]["customModelData"] + '}}}\n')
+                        file2.write('execute if entity @p[x_rotation=45..90] run summon item_display ~ ~ ~ {brightness:{sky:15,block:0},Tags:["' + self.nameSpace + f'.{self.blocks[self.blck]["name"]}","' + self.nameSpace + '.custom_block"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0.469f,0f],scale:[1.001f,1.001f,1.001f]},item:{id:"minecraft:item_frame",count:1,components:{"minecraft:custom_model_data":' + self.blocks[self.blck]["customModelData"] + '}}}\n')
+                        file2.write('execute if entity @p[x_rotation=-90..45] at @s run summon item_display ~ ~0.469 ~-0.47 {Rotation:[0F,90F],brightness:{sky:15,block:0},Tags:["' + self.nameSpace + f'.{self.blocks[self.blck]["name"]}","' + self.nameSpace + '.custom_block"],transformation:{left_rotation:[0f,-1f,1f,1f],right_rotation:[1.000f,0.5f,0.5f,0f],translation:[0f,0.47f,0f],scale:[1.001f,1.001f,1.001f]},item:{id:"minecraft:item_frame",count:1,components:{"minecraft:custom_model_data":' + self.blocks[self.blck]["customModelData"] + '}}}\n')
+                    else:
+                        file2.write('summon item_display ~ ~ ~ {brightness:{sky:15,block:0},Tags:["' + self.nameSpace + f'.{self.blocks[self.blck]["name"]}","' + self.nameSpace + '.custom_block"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0.469f,0f],scale:[1.001f,1.001f,1.001f]},item:{id:"minecraft:item_frame",count:1,components:{"minecraft:custom_model_data":' + self.blocks[self.blck]["customModelData"] + '}}}\n')
                     file2.close()
                 file.write('execute as @s[tag=' + self.nameSpace + '.' + self.blocks[self.blck]["name"] + '] run function ' + self.nameSpace + ':' + self.blocks[self.blck]["name"] + '/place\n')
             
