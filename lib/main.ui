@@ -419,10 +419,10 @@ background-color: rgb(95, 95, 95);
     </property>
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>600</x>
       <y>420</y>
-      <width>47</width>
-      <height>13</height>
+      <width>281</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
