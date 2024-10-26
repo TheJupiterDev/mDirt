@@ -773,7 +773,7 @@ background-color: rgb(95, 95, 95);
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox">
+   <widget class="QCheckBox" name="directionalCheck">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -802,7 +802,7 @@ background-color: rgb(95, 95, 95);
      <string>Place Sound:</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="placeSound">
     <property name="geometry">
      <rect>
       <x>100</x>
