@@ -3,6 +3,7 @@ import os
 import sys
 import shutil
 from PyQt5 import QtWidgets
+from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
 from tkinter import filedialog
 from ui import Ui_MainWindow
@@ -34,6 +35,12 @@ class app():
         self.checkTextures()
 
         self.app.exec()
+    
+    def setStatus(self, stat):
+        self.stat = stat
+        self.ui.status.setEnabled(True)
+        self.ui.status.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.ui.status.setText(self.stat)
     
     def checkTextures(self):
         self.ui.topFaceBtn.clicked.connect(lambda: self.getTexture("4"))
@@ -139,6 +146,38 @@ class app():
             self.val = self.texture[text]
             self.textureNames[text] = os.path.splitext(os.path.basename(str(self.val)))[0]
         
+        if self.ui.blockName.text() == "":
+            self.setStatus("Please fill in each field!")
+            return
+        if self.ui.blockDisplayName.text() == "":
+            self.setStatus("Please fill in each field!")
+            return
+        if self.ui.blockCMD.text() == "":
+            self.setStatus("Please fill in each field!")
+            return
+        if self.ui.blockBase.text() == "":
+            self.setStatus("Please fill in each field!")
+            return
+        
+        if self.texture["0"] == "":
+            self.setStatus("Please fill in each field!")
+            return
+        if self.texture["1"] == "":
+            self.setStatus("Please fill in each field!")
+            return
+        if self.texture["2"] == "":
+            self.setStatus("Please fill in each field!")
+            return
+        if self.texture["3"] == "":
+            self.setStatus("Please fill in each field!")
+            return
+        if self.texture["4"] == "":
+            self.setStatus("Please fill in each field!")
+            return
+        if self.texture["5"] == "":
+            self.setStatus("Please fill in each field!")
+            return
+        
         self.blockProperties = {
             "name": self.ui.blockName.text(),
             "displayName": self.ui.blockDisplayName.text(),
@@ -152,8 +191,6 @@ class app():
         }
 
         self.blocks[self.blockProperties["name"]] = self.blockProperties
-        
-        print(self.blocks)
 
         self.ui.blockList.addItem(self.blockProperties["name"])
         self.clearFields()
@@ -180,8 +217,13 @@ class app():
         self.ui.blockList.takeItem(self.curItem)
     
     def generateResourcePack(self):
-        self.outputDir = filedialog.askdirectory().replace("/", "\\")
-        self.packDir = os.path.join(self.outputDir, self.ui.packName.text() + "Resource Pack")
+        try:
+            self.outputDir = filedialog.askdirectory().replace("/", "\\")
+        except:
+            self.setStatus("Please select an output directory!")
+            return
+        
+        self.packDir = os.path.join(self.outputDir, self.packName + "Resource Pack")
         os.mkdir(self.packDir)
         os.mkdir(self.packDir + "\\assets")
         os.mkdir(self.packDir + "\\assets\\minecraft")
@@ -191,7 +233,7 @@ class app():
         os.mkdir(self.packDir + "\\assets\\minecraft\\models\\item")
         os.mkdir(self.packDir + "\\assets\\minecraft\\models\\" + self.nameSpace)
         with open(f'{self.packDir}\\pack.mcmeta', 'w') as pack:
-            pack.write('{\n    "pack": {\n        "pack_format": 42,\n        "description": "' + self.ui.packDescription.text() + '"\n    }\n}\n')
+            pack.write('{\n    "pack": {\n        "pack_format": 42,\n        "description": "' + self.packDescription + '"\n    }\n}\n')
             pack.close()
         with open(f'{self.packDir}\\assets\\minecraft\\models\\item\\item_frame.json', 'a') as file:
             file.write('{"parent": "minecraft:item/generated","textures": {"layer0": "minecraft:item/item_frame"},"overrides":[')
@@ -212,20 +254,43 @@ class app():
         
     
     def generate(self):
+        
+        self.setStatus("Generating...")
 
         self.nameSpace = self.ui.packNamespace.text()
+        if self.nameSpace == "":
+            self.setStatus("Input a proper Namespace!")
+            return
+        
+        self.packName = self.ui.packName.text()
+
+        if self.packName == "":
+            self.setStatus("Input a proper Pack Name!")
+            return
+        
+        self.packDescription = self.ui.packDescription.text()
+        
+        if self.packDescription == "":
+            self.setStatus("Input a proper Pack Description!")
+            return
 
         if self.ui.blockResourceCheckBox.isChecked():
             self.generateResourcePack()
 
-        self.outputDir = filedialog.askdirectory().replace("/", "\\")
-        self.packDir = os.path.join(self.outputDir, self.ui.packName.text())
+        try:
+            self.outputDir = filedialog.askdirectory().replace("/", "\\")
+        except Exception as e:
+            self.setStatus("Please select an output directory!")
+            return
+
+        self.packDir = os.path.join(self.outputDir, self.packName)
         os.mkdir(self.packDir)
         os.mkdir(self.packDir + "\\data")
         self.packNamespace = os.path.join(self.packDir, "data", self.nameSpace)
         self.minecraft = os.path.join(self.packDir, "data", "minecraft")
         os.mkdir(self.minecraft)
         os.mkdir(self.packNamespace)
+
         with open(f'{self.packDir}\\pack.mcmeta', 'w') as pack:
             pack.write('{\n    "pack": {\n        "pack_format": 57,\n        "description": "' + self.ui.packDescription.text() + '"\n    }\n}\n')
             pack.close()
@@ -319,6 +384,7 @@ class app():
                     file.write('{"pools": [{"rolls": 1,"entries": [{"type": "minecraft:item","name": "' + self.blocks[self.blck]["blockDrop"] + '"}]}]}')
                 
                 file.close()
+        self.setStatus("Generated!")
         
 
     

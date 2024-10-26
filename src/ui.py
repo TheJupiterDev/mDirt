@@ -129,7 +129,7 @@ class Ui_MainWindow(object):
         self.label_15.setObjectName("label_15")
         self.status = QtWidgets.QLabel(self.centralwidget)
         self.status.setEnabled(False)
-        self.status.setGeometry(QtCore.QRect(710, 420, 47, 13))
+        self.status.setGeometry(QtCore.QRect(600, 420, 281, 20))
         self.status.setText("")
         self.status.setObjectName("status")
         self.blockTextureLabel = QtWidgets.QLabel(self.centralwidget)
