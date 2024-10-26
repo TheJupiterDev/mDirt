@@ -24,8 +24,6 @@ To get your blocks in game, run /function YOURNAMESPACE:give_items
 - Error Handling
 
 ### Known Issues
-There are no placing sounds, this will be fixed soon.
-The tooltips in the app look bad. This is being fixed.
-The break particles are not from the custom block, but from the base block. _This will be fixed if possible._
+The break particles are not from the custom block, but from the base block. I sadly cannot do anything about this, it is a limitation in Datapacks.
 
 The tool was made entirely by me, but the method for adding custom blocks was developed by https://youtube.com/@WASDBuildTeam and improved upon by me!
