@@ -67,6 +67,7 @@ class app():
         self.ui.packDescription.setText(self.packProperties["packDescription"])
         self.ui.packVersion.setCurrentText(self.packProperties["packVersion"])
         self.blocks = self.packProperties["blcks"]
+        print(self.blocks)
         for self.block in self.blocks:
             self.ui.blockList.addItem(self.blocks[self.block]["name"])
         
@@ -146,9 +147,28 @@ class app():
             "textures": self.textureNames
         }
 
-        self.blocks[self.ui.blockName.text()] = self.blockProperties
+        self.blocks[self.blockProperties["name"]] = self.blockProperties
         
+        print(self.blocks)
+
         self.ui.blockList.addItem(self.blockProperties["name"])
+        self.clearFields()
+
+    def clearFields(self):
+        self.texture = {"0": "", "1": "", "2": "", "3": "", "4": "", "5": ""}
+        self.ui.blockDisplayName.setText("")
+        self.ui.blockName.setText("")
+        self.ui.blockBase.setText("")
+        self.ui.blockCMD.setText("")
+        self.ui.blockDrop.setText("")
+        self.ui.lineEdit.setText("")
+        self.ui.checkBox.setChecked(False)
+        self.ui.topFace.clear()
+        self.ui.bottomFace.clear()
+        self.ui.rightFace.clear()
+        self.ui.leftFace.clear()
+        self.ui.frontFace.clear()
+        self.ui.backFace.clear()
     
     def removeBlock(self):
         self.curItem = self.ui.blockList.currentRow()
@@ -178,12 +198,13 @@ class app():
             file.write(']}')
             file.close()
         for self.block in self.blocks:
-            self.texture = self.packDir + "\\assets\\minecraft\\textures\\item\\" #+ self.blocks[block]["name"] + ".png"
-            for path in self.blocks[block]["texturePaths"].values():
-                if not os.path.exists(os.path.join(self.texture, os.path.splitext(os.path.basename(str(path)))[-2] + ".png")):
-                    shutil.copy(path, os.path.join(self.texture, os.path.splitext(os.path.basename(str(path)))[-2] + ".png"))
-            with open(f'{self.packDir}\\assets\\minecraft\\models\\'+ self.nameSpace + '\\' + self.blocks[block]["name"] + '.json', 'w') as file:
-                file.write('{"credit": "Made with mDirt","textures": {"0": "' + self.blocks[block]["textures"][0] + '","1": "' + self.blocks[block]["textures"][1] + '","2": "' + self.blocks[block]["textures"][2] + '","3": "' + self.blocks[block]["textures"][3] + '","4": "' + self.blocks[block]["textures"][4] + '","5": "' + self.blocks[block]["textures"][5] + '","particle": "' + self.blocks[block]["textures"][0] + '"},"elements": [{"from": [0, 0, 0],"to": [16, 16, 16],"faces": {"north": {"uv": [0, 0, 16, 16], "texture": "#0"},"east": {"uv": [0, 0, 16, 16], "texture": "#1"},"south": {"uv": [0, 0, 16, 16], "texture": "#2"},"west": {"uv": [0, 0, 16, 16], "texture": "#3"},"up": {"uv": [0, 0, 16, 16], "texture": "#4"},"down": {"uv": [0, 0, 16, 16], "texture": "#5"}}}],"display": {"thirdperson_righthand": {"rotation": [0, 0, -55],"translation": [0, 2.75, -2.5],"scale": [0.4, 0.4, 0.4]},"thirdperson_lefthand": {"rotation": [0, 0, -55],"translation": [0, 2.75, -2.5],"scale": [0.4, 0.4, 0.4]},"firstperson_righthand": {"rotation": [0, 45, 0],"scale": [0.4, 0.4, 0.4]},"ground": {"translation": [0, 3.25, 0],"scale": [0.4, 0.4, 0.4]},"gui": {"rotation": [28, 45, 0],"scale": [0.6, 0.6, 0.6]}}}')
+            self.texturePath = self.packDir + "\\assets\\minecraft\\textures\\item\\" #+ self.blocks[block]["name"] + ".png"
+            print(self.blocks[self.block]["texturePaths"].values())
+            for self.path in self.blocks[self.block]["texturePaths"].values():
+                if not os.path.exists(os.path.join(self.texturePath, os.path.splitext(os.path.basename(str(self.path)))[-2] + ".png")):
+                    shutil.copy(self.path, os.path.join(self.texturePath, os.path.splitext(os.path.basename(str(self.path)))[-2] + ".png"))
+            with open(f'{self.packDir}\\assets\\minecraft\\models\\'+ self.nameSpace + '\\' + self.blocks[self.block]["name"] + '.json', 'w') as file:
+                file.write('{"credit": "Made with mDirt","textures": {"0": "item/' + self.blocks[self.block]["textures"]["0"] + '","1": "item/' + self.blocks[self.block]["textures"]["1"] + '","2": "item/' + self.blocks[self.block]["textures"]["2"] + '","3": "item/' + self.blocks[self.block]["textures"]["3"] + '","4": "item/' + self.blocks[self.block]["textures"]["4"] + '","5": "item/' + self.blocks[self.block]["textures"]["5"] + '","particle": "item/' + self.blocks[self.block]["textures"]["0"] + '"},"elements": [{"from": [0, 0, 0],"to": [16, 16, 16],"faces": {"north": {"uv": [0, 0, 16, 16], "texture": "#0"},"east": {"uv": [0, 0, 16, 16], "texture": "#1"},"south": {"uv": [0, 0, 16, 16], "texture": "#2"},"west": {"uv": [0, 0, 16, 16], "texture": "#3"},"up": {"uv": [0, 0, 16, 16], "texture": "#4"},"down": {"uv": [0, 0, 16, 16], "texture": "#5"}}}],"display": {"thirdperson_righthand": {"rotation": [0, 0, -55],"translation": [0, 2.75, -2.5],"scale": [0.4, 0.4, 0.4]},"thirdperson_lefthand": {"rotation": [0, 0, -55],"translation": [0, 2.75, -2.5],"scale": [0.4, 0.4, 0.4]},"firstperson_righthand": {"rotation": [0, 45, 0],"scale": [0.4, 0.4, 0.4]},"ground": {"translation": [0, 3.25, 0],"scale": [0.4, 0.4, 0.4]},"gui": {"rotation": [28, 45, 0],"scale": [0.6, 0.6, 0.6]}}}')
                 file.close()
         
     
