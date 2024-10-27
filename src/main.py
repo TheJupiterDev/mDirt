@@ -238,7 +238,7 @@ class app():
         with open(f'{self.packDir}\\assets\\minecraft\\models\\item\\item_frame.json', 'a') as file:
             file.write('{"parent": "minecraft:item/generated","textures": {"layer0": "minecraft:item/item_frame"},"overrides":[')
             for block in self.blocks:
-                file.write(self.header + '{ "predicate": { "custom_model_data": ' + self.blocks[block]["customModelData"] + '}, "model": "' + self.nameSpace + '/' + self.blocks[block]["name"] + '"}')
+                file.write('{ "predicate": { "custom_model_data": ' + self.blocks[block]["customModelData"] + '}, "model": "' + self.nameSpace + '/' + self.blocks[block]["name"] + '"}')
                 if block != next(reversed(self.blocks.keys())):
                     file.write(',')
             file.write(']}')
