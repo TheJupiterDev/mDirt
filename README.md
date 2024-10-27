@@ -17,7 +17,7 @@ To get your blocks in game, run /function YOURNAMESPACE:give_items
 
 ## Update plan
 - v1 of mDirt is now Feature Complete!
-- v2.0.0 is now in development, coming with a complete overhaul to the entire application, and adding support for making custom items.
+- v2.0.0 is now in development, coming with a complete overhaul to the entire application (Including the UI!), and adding support for making custom items.
 
 ## In Progress
 - MacOS native binary coming for v2.0 (@JustJoshinDev)
