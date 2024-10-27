@@ -16,7 +16,7 @@ Fill in all the details, press "Generate Pack" when you are ready.
 To get your blocks in game, run /function YOURNAMESPACE:give_items
 
 ## Update plan
-- v1 of mDirt is now Feature Complete! There will possibly be bug fixes & UI changes, but it is now done!
+- v1 of mDirt is now Feature Complete!
 - v2.0.0 is now in development, coming with a complete overhaul to the entire application, and adding support for making custom items.
 
 ## In Progress
