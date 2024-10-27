@@ -21,7 +21,6 @@ To get your blocks in game, run /function YOURNAMESPACE:give_items
 
 ## In Progress
 - MacOS native binary coming for v2.0 (@JustJoshinDev)
-- Error Handling
 
 ### Known Issues
 The break particles are not from the custom block, but from the base block. I sadly cannot do anything about this, it is a limitation in Datapacks.
