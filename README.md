@@ -25,4 +25,4 @@ To get your blocks in game, run /function YOURNAMESPACE:give_items
 ### Known Issues
 The break particles are not from the custom block, but from the base block. I sadly cannot do anything about this, it is a limitation in Datapacks.
 
-The tool was made entirely by me, but the method for adding custom blocks was developed by https://youtube.com/@WASDBuildTeam and improved upon by me!
+The tool was made entirely by me and lots of help from @JustJoshinDev, but the method for adding custom blocks was developed by https://youtube.com/@WASDBuildTeam and improved upon by me!
