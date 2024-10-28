@@ -52,18 +52,10 @@ class app():
         self.ui.backFaceBtn.clicked.connect(lambda: self.getTexture("0"))
 
     def getTexture(self, id):
-        # Ensure 'self' is a QWidget or adjust to the appropriate parent QWidget
-        parent_widget = self if isinstance(self, QWidget) else None
-
         self.id = id
-        options = QFileDialog.Options()
+        self.texture[self.id] = QFileDialog.getOpenFileName(self.mainwindow, "Open Texture File", "", "PNG Files (*.png)")[0]
 
-        # Pass the appropriate parent_widget instead of self
-        file, _ = QFileDialog.getOpenFileName(parent_widget, "Open PNG File", "", "PNG Files (*.png);;All Files (*)",
-                                              options=options)
-
-        if file:
-            self.texture[self.id] = file
+        if self.texture[self.id] != "":
             self.pixmap = QPixmap(self.texture[self.id]).scaled(41, 41, aspectRatioMode=True)
             if self.id == "0":
                 self.ui.backFace.setPixmap(self.pixmap)
@@ -77,28 +69,29 @@ class app():
                 self.ui.topFace.setPixmap(self.pixmap)
             elif self.id == "5":
                 self.ui.bottomFace.setPixmap(self.pixmap)
+        else:
+            self.setStatus("Please select a valid Texture!")
 
     def imported(self):
-        parent_widget = self if isinstance(self, QWidget) else None
-        self.iFile, _ = QFileDialog.getOpenFileName(parent_widget, 'Open mDirt File', '', 'mDirt File (*.mdrt)')
-        if self.iFile:
-            with open(self.iFile, 'r') as file:
+        self.iFile = QFileDialog.getOpenFileName(self.mainwindow, "Open mDirt File", "", "mDirt File (*.mdrt)")
+        
+        if self.iFile[0] != "":
+            with open(self.iFile[0], 'r') as file:
                 self.packProperties = json.load(file)
                 self.ui.packName.setText(self.packProperties["packName"])
                 self.ui.packNamespace.setText(self.packProperties["packNamespace"])
                 self.ui.packDescription.setText(self.packProperties["packDescription"])
                 self.ui.packVersion.setCurrentText(self.packProperties["packVersion"])
                 self.blocks = self.packProperties["blcks"]
-                print(self.blocks)
                 for block in self.blocks:
                     self.ui.blockList.addItem(self.blocks[block]["name"])
+        else:
+            self.setStatus("Please select a valid mDirt file!")
 
     def export(self):
-        main_window = self  # Replace self with the actual main window QWidget instance if different
-        options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
-        filePath, _ = QFileDialog.getSaveFileName(main_window, "Save mDirt File", "", "mDirt File (*.mdrt);;All Files (*)", options=options)
-        if filePath:
+        self.eFile = QFileDialog.getSaveFileName(self.mainwindow, "Save mDirt File", "", "mDirt File (*.mdrt)")
+        
+        if self.eFile[0] != "":
             self.packProperties = {
                 "packName": self.ui.packName.text(),
                 "packNamespace": self.ui.packNamespace.text(),
@@ -106,9 +99,11 @@ class app():
                 "packVersion": self.ui.packVersion.currentText(),
                 "blcks": self.blocks
             }
-            with open(filePath, 'w') as eFile:
-                eFile.write(str(self.packProperties).replace("'", '"'))
-            eFile.close()  # Correcting from self.eFile to eFile
+            with open(self.eFile[0], 'w') as eFile:
+                eFile[0].write(str(self.packProperties).replace("'", '"'))
+            eFile[0].close()
+        else:
+            self.setStatus("Please save to a proper location!")
     
     def checkAdd(self):
         self.ui.buttonAddBlock.clicked.connect(self.addBlock)
@@ -241,13 +236,15 @@ class app():
         self.ui.blockList.takeItem(self.curItem)
     
     def generateResourcePack(self):
-        try:
-            self.outputDir = QFileDialog.getOpenFileName(None, "Select File").replace("/", "\\")
-        except:
+        self.outputDir = QFileDialog.getExistingDirectory(self.mainwindow, "Output Directory", "")
+
+        print(self.outputDir)
+
+        if self.outputDir == "":
             self.setStatus("Please select an output directory!")
             return
         
-        self.packDir = os.path.join(self.outputDir, self.packName + "Resource Pack")
+        self.packDir = os.path.join(self.outputDir, self.packName + " Resource Pack")
         os.mkdir(self.packDir)
         os.mkdir(self.packDir + "\\assets")
         os.mkdir(self.packDir + "\\assets\\minecraft")
@@ -301,9 +298,8 @@ class app():
         if self.ui.blockResourceCheckBox.isChecked():
             self.generateResourcePack()
 
-        try:
-            self.outputDir = QFileDialog.getOpenFileName(None, "Select File").replace("/", "\\")
-        except Exception as e:
+        self.outputDir = QFileDialog.getExistingDirectory(self.mainwindow, "Output Directory", "")
+        if self.outputDir == "":
             self.setStatus("Please select an output directory!")
             return
 
