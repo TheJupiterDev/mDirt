@@ -15,12 +15,8 @@ If you don't understand a field, hover over it and read the tooltip!
 Fill in all the details, press "Generate Pack" when you are ready.
 To get your blocks in game, run /function YOURNAMESPACE:give_items
 
-## Update plan
-- v1 of mDirt is now Feature Complete!
-- v2.0.0 is now in development, coming with a complete overhaul to the entire application (Including the UI!), and adding support for making custom items.
-
 ## In Progress
-- MacOS native binary coming for v2.0 (@JustJoshinDev)
+- MacOS native binary (@JustJoshinDev)
 
 ### Known Issues
 The break particles are not from the custom block, but from the base block. I sadly cannot do anything about this, it is a limitation in Datapacks.
