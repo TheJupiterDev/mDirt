@@ -15,6 +15,9 @@ If you don't understand a field, hover over it and read the tooltip!
 Fill in all the details, press "Generate Pack" when you are ready.
 To get your blocks in game, run /function YOURNAMESPACE:give_items
 
+## Next Update Details
+v1.8.0 will add custom Items to to the program. It will be released with in a week or so (hopefully)
+
 ## In Progress
 - MacOS native binary (@JustJoshinDev)
 
