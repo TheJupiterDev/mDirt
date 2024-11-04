@@ -16,7 +16,7 @@ Fill in all the details, press "Generate Pack" when you are ready.
 To get your blocks in game, run /function YOURNAMESPACE:give_items
 
 ## Next Update Details
-v1.8.0 Pre-Release 2 will add support for custom models for custom items
+v1.8.0 Pre-Release 2 will add support for custom models for custom items.
 
 ## In Progress
 - MacOS native binary (@JustJoshinDev)
