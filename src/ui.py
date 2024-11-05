@@ -767,6 +767,7 @@ class Ui_MainWindow(object):
         self.itemModel.setObjectName("itemModel")
         self.itemModel.addItem("")
         self.itemModel.addItem("")
+        self.itemModel.addItem("")
         self.itemAddButton = QtWidgets.QPushButton(self.tab_3)
         self.itemAddButton.setGeometry(QtCore.QRect(230, 440, 75, 23))
         self.itemAddButton.setObjectName("itemAddButton")
@@ -794,7 +795,7 @@ class Ui_MainWindow(object):
         self.menuBar.addAction(self.menuFile.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -885,6 +886,7 @@ class Ui_MainWindow(object):
         self.itemModel.setToolTip(_translate("MainWindow", "<html><head/><body><p>Generated for regular items.</p><p>Handheld for things such as swords or shovels.</p></body></html>"))
         self.itemModel.setItemText(0, _translate("MainWindow", "Generated"))
         self.itemModel.setItemText(1, _translate("MainWindow", "Handheld"))
+        self.itemModel.setItemText(2, _translate("MainWindow", "Custom"))
         self.itemAddButton.setText(_translate("MainWindow", "Add Item"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Items"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
