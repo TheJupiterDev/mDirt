@@ -1,6 +1,8 @@
 # mDirt
 ## making Datapacks Is Really Tedious
 
+### Notice: mDirt updates are now indefinetly on hold! This is due to some major *GOOD* changes Mojang is making with datapacks.
+
 A tool for easily creating custom blocks using Minecraft Datapacks.
 **Only Supported for 1.21.3 and up! No previous versions will be added!**
 
@@ -14,9 +16,6 @@ Download the latest release, and run it.
 If you don't understand a field, hover over it and read the tooltip!
 Fill in all the details, press "Generate Pack" when you are ready.
 To get your blocks in game, run /function YOURNAMESPACE:give_items
-
-## Next Update Details
-v1.8.0 Pre-Release 3 will add cool stuff!
 
 ## In Progress
 - MacOS native binary (@JustJoshinDev)
