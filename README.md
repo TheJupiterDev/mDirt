@@ -1,8 +1,6 @@
 # mDirt
 ## making Datapacks Is Really Tedious
 
-### Notice: mDirt updates are now indefinetly on hold! This is due to some major *GOOD* changes Mojang is making with datapacks.
-
 A tool for easily creating custom blocks using Minecraft Datapacks.
 **Only Supported for 1.21.3 and up! No previous versions will be added!**
 
