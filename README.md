@@ -22,6 +22,6 @@ To get your blocks in game, run /function YOURNAMESPACE:give_items
 - MacOS native binary (@JustJoshinDev)
 
 ### Known Issues
-The break particles are not from the custom block, but from the base block. I sadly cannot do anything about this, it is a limitation in Datapacks.
+Currently, if you create an item with a NON-CUSTOM model, the program will crash. *This is being worked on*
 
 The tool was made entirely by me and lots of help from @JustJoshinDev, but the method for adding custom blocks was developed by https://youtube.com/@WASDBuildTeam and improved upon by me!
