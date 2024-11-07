@@ -24,4 +24,6 @@ To get your blocks in game, run /function YOURNAMESPACE:give_items
 ### Known Issues
 Currently, if you create an item with a NON-CUSTOM model, the program will crash. *This is being worked on*
 
+The UI is broken if you run the code on MacOS. *This is being worked on* (@JustJoshinDev)
+
 The tool was made entirely by me and lots of help from @JustJoshinDev, but the method for adding custom blocks was developed by https://youtube.com/@WASDBuildTeam and improved upon by me!
