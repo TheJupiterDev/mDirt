@@ -15,6 +15,9 @@ If you don't understand a field, hover over it and read the tooltip!
 Fill in all the details, press "Generate Pack" when you are ready.
 To get your blocks in game, run /function YOURNAMESPACE:give_items
 
+## Next Update
+- v1.9.0 will include custom recipes.
+
 ## In Progress
 - MacOS native binary (@JustJoshinDev)
 
