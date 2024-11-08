@@ -76,7 +76,6 @@ class app:
         
     def itemFormClosed(self, id, item):
         self.recipe[str(id)] = item
-        print(self.recipe)
         if id == 0:
             self.ui.slot0Label.setText(item)
         elif id == 1:
@@ -707,69 +706,73 @@ class app:
         
         # Recipes
         for recipe in self.recipes:
-            with open(f'{self.packNamespace}\\recipe\\{self.recipes[recipe]["name"]}.json', 'a') as file:
-                letters = {"0": "A", "1": "D", "2": "G", "3": "B", "4": "E", "5": "H", "6": "C", "7": "F", "8": "I"}
-                recip = self.recipes[recipe]["items"]
-                file.write('{"type": "minecraft:crafting_shaped", "pattern": ["')
-                if recip["0"] != "":
-                    file.write("A")
-                else:
-                    file.write(" ")
-                if recip["3"] != "":
-                    file.write("B")
-                else:
-                    file.write(" ")
-                if recip["6"] != "":
-                    file.write("C")
-                else:
-                    file.write(" ")
-                
-                file.write('","')
+            if not self.recipes[recipe]["shapeless"]:
+                with open(f'{self.packNamespace}\\recipe\\{self.recipes[recipe]["name"]}.json', 'a') as file:
+                    file.truncate(0)
+                    file.seek(0)
+                    letters = {"0": "A", "1": "D", "2": "G", "3": "B", "4": "E", "5": "H", "6": "C", "7": "F", "8": "I"}
+                    recip = self.recipes[recipe]["items"]
+                    file.write('{"type": "minecraft:crafting_shaped", "pattern": ["')
+                    if recip["0"] != "":
+                        file.write("A")
+                    else:
+                        file.write(" ")
+                    if recip["3"] != "":
+                        file.write("B")
+                    else:
+                        file.write(" ")
+                    if recip["6"] != "":
+                        file.write("C")
+                    else:
+                        file.write(" ")
+                    
+                    file.write('","')
 
-                if recip["1"] != "":
-                    file.write("D")
-                else:
-                    file.write(" ")
-                if recip["4"] != "":
-                    file.write("E")
-                else:
-                    file.write(" ")
-                if recip["7"] != "":
-                    file.write("F")
-                else:
-                    file.write(" ")
-                
-                file.write('","')
+                    if recip["1"] != "":
+                        file.write("D")
+                    else:
+                        file.write(" ")
+                    if recip["4"] != "":
+                        file.write("E")
+                    else:
+                        file.write(" ")
+                    if recip["7"] != "":
+                        file.write("F")
+                    else:
+                        file.write(" ")
+                    
+                    file.write('","')
 
-                if recip["2"] != "":
-                    file.write("G")
-                else:
-                    file.write(" ")
-                if recip["5"] != "":
-                    file.write("H")
-                else:
-                    file.write(" ")
-                if recip["8"] != "":
-                    file.write("I")
-                else:
-                    file.write(" ")
+                    if recip["2"] != "":
+                        file.write("G")
+                    else:
+                        file.write(" ")
+                    if recip["5"] != "":
+                        file.write("H")
+                    else:
+                        file.write(" ")
+                    if recip["8"] != "":
+                        file.write("I")
+                    else:
+                        file.write(" ")
 
-                file.write('"],"key":{')
-
-                for i in range(8):
-                    if recip[str(i)] != "":
-                        file.write('"' + letters[str(i)] + '":"minecraft:' + recip[str(i)] + '",')
-                if recip[str(8)] != "":
-                    file.write('"' + letters[str(8)] + '":"minecraft:' + recip[str(8)] + '"')
-
-            with open(f'{self.packNamespace}\\recipe\\{self.recipes[recipe]["name"]}.json', 'r+') as file:
-                content = file.read()
-                comma = content.rfind(',')
-                print(comma)
-                if comma != -1: content = content[:comma] + content[comma + 1:]
-                file.truncate(0)
-                file.write(content + '},"result": { "id":"minecraft:' + recip[str(9)] + '", "count":' + self.recipes[recipe]["count"] + '}}')
-
+                    file.write('"],"key":{')
+                    items = [(k, v) for k, v in recip.items() if v not in (None, '')][:-1]
+                    for i, (key, value) in enumerate(items):
+                        if value != "" and value != None:
+                            file.write('"' + letters[str(key).replace("'", '"')] + '":"minecraft:' + value + '"')
+                            if i < len(items) -1: file.write(',')
+                    file.write('},"result": { "id":"minecraft:' + recip[str(9)] + '", "count":' + self.recipes[recipe]["count"] + '}}')
+            else:
+                with open(f'{self.packNamespace}\\recipe\\{self.recipes[recipe]["name"]}.json', 'a') as file:
+                    recip = self.recipes[recipe]["items"]
+                    file.write('{"type": "minecraft:crafting_shapeless", "ingredients": [')
+                    items = [(k, v) for k, v in recip.items() if v not in (None, '')][:-1]
+                    for ingredient, (key, value) in enumerate(items):
+                        if str(value) != "":
+                            file.write('"minecraft:' + str(value) + '"')
+                            if ingredient < len(items) - 1: file.write(',')
+                    file.write('],"result":{"id": "minecraft:' + recip[str(9)] + '", "count":' + self.recipes[recipe]["count"] + '}}')
 
         self.setStatus("Generated!")     
 
