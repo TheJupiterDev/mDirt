@@ -16,7 +16,7 @@ Fill in all the details, press "Generate Pack" when you are ready.
 To get your blocks in game, run /function YOURNAMESPACE:give_items
 
 ## Next Update
-- v1.9.0 Pre Release 2 will add custom recipes for custom blocks & items.
+- v1.9.0 Pre Release 3 will add custom recipes for custom blocks & items.
 
 ## In Progress
 - MacOS native binary (@JustJoshinDev)
