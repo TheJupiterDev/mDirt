@@ -12,6 +12,12 @@ class app:
         self.blocks = {}
         self.items = {}
         self.recipes = {}
+
+        self.generated_cmds = {
+            "items": {}, 
+            "blocks": {}
+            }
+
         self.recipe = {"0": "", "1": "", "2": "", "3": "", "4": "", "5": "", "6": "", "7": "", "8": "", "9": ""}
         self.texture = {"0": "", "1": "", "2": "", "3": "", "4": "", "5": ""}
         self.blockNum = 0
@@ -66,6 +72,12 @@ class app:
 
         with open(f'{os.path.dirname(os.path.abspath(__file__)) + '\\item_list.json'}', 'r') as f:
             item_list = json.load(f)
+
+        if id == 9:
+            # for block in self.blocks:
+            #     self.ui_form.comboBox.addItem(f'{self.blocks[block]["name"]}')
+            for item in self.items:
+                self.ui_form.comboBox.addItem(f'{self.items[item]["name"]}')
         
         for item in item_list["items"]:
             self.ui_form.comboBox.addItem(item)
@@ -441,7 +453,10 @@ class app:
         self.blockNumLoopLen = len(self.strBlockNumLoop)
         self.zeros = 7 - len(cmdPrefix) - self.blockNumLoopLen
         return f'{cmdPrefix}{'0' * self.zeros}{self.strBlockNumLoop}' 
-      
+    
+    def appendCMD(self, type_, name, cmd):
+        self.generated_cmds[type_][name] = cmd
+
     def generateResourcePack(self, itemModelFile):
         self.outputDir = QFileDialog.getExistingDirectory(self.mainwindow, "Output Directory", "")
 
@@ -472,6 +487,7 @@ class app:
                 self.blockNumLoop += 1
                 self.personalCMD = self.parse(self.customModelDataPrefix, self.blockNumLoop)
                 file.write('{ "predicate": { "custom_model_data": ' + self.personalCMD + '}, "model": "' + self.nameSpace + '/' + self.blocks[block]["name"] + '"}')
+                self.appendCMD("blocks", self.blocks[block]["name"], self.personalCMD)
                 if block != next(reversed(self.blocks.keys())):
                     file.write(',')
             file.write('}')
@@ -502,6 +518,7 @@ class app:
             self.blockNumLoop += 1
             self.modelPath = self.packDir + "\\assets\\minecraft\\models\\item\\"
             self.personalCMD = self.parse(self.customModelDataPrefix, self.blockNumLoop)
+            self.appendCMD("items", self.items[self.item]["name"], self.personalCMD)
             if not os.path.exists(f'{self.modelPath}{self.items[self.item]["baseItem"].removeprefix("minecraft:")}.json'): 
                 self.exists = 0
             with open(f'{self.modelPath}{self.items[self.item]["baseItem"].removeprefix("minecraft:")}.json', 'a') as file:
@@ -692,6 +709,7 @@ class app:
         
         
         # Loot Tables
+
         self.blockNumLoop = 0
         for self.blck in self.blocks.keys():
             self.blockNumLoop += 1
@@ -705,6 +723,7 @@ class app:
                 file.close()
         
         # Recipes
+
         for recipe in self.recipes:
             if not self.recipes[recipe]["shapeless"]:
                 with open(f'{self.packNamespace}\\recipe\\{self.recipes[recipe]["name"]}.json', 'a') as file:
@@ -762,7 +781,11 @@ class app:
                         if value != "" and value != None:
                             file.write('"' + letters[str(key).replace("'", '"')] + '":"minecraft:' + value + '"')
                             if i < len(items) -1: file.write(',')
-                    file.write('},"result": { "id":"minecraft:' + recip[str(9)] + '", "count":' + self.recipes[recipe]["count"] + '}}')
+                    if not recip["9"] in self.items:
+                        file.write('},"result": { "id":"minecraft:' + recip[str(9)] + '", "count":' + self.recipes[recipe]["count"] + '}}')
+                    else:
+                        idx = self.items[recip["9"]]
+                        file.write('},"result":{ "id":"' + idx["baseItem"] + '", "count":' + self.recipes[recipe]["count"] + ', "components": {"minecraft:item_name":"{\"italic\":false,\"text\":\"' + idx["displayName"] + '\"}", "minecraft:custom_model_data": ' + self.generated_cmds["items"][idx["name"]] + '}}}')
             else:
                 with open(f'{self.packNamespace}\\recipe\\{self.recipes[recipe]["name"]}.json', 'a') as file:
                     recip = self.recipes[recipe]["items"]
@@ -772,7 +795,11 @@ class app:
                         if str(value) != "":
                             file.write('"minecraft:' + str(value) + '"')
                             if ingredient < len(items) - 1: file.write(',')
-                    file.write('],"result":{"id": "minecraft:' + recip[str(9)] + '", "count":' + self.recipes[recipe]["count"] + '}}')
+                    if not recip["9"] in self.items:
+                        file.write('],"result":{"id": "minecraft:' + recip[str(9)] + '", "count":' + self.recipes[recipe]["count"] + '}}')
+                    else:
+                        idx = self.items[recip["9"]]
+                        file.write('},"result":{ "id":"' + idx["baseItem"] + '", "count":' + self.recipes[recipe]["count"] + ', "components": {"minecraft:item_name":"{\"italic\":false,\"text\":\"' + idx["displayName"] + '\"}", "minecraft:custom_model_data": ' + self.generated_cmds["items"][idx["name"]] + '}}}')
 
         self.setStatus("Generated!")     
 
