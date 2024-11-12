@@ -37,7 +37,9 @@ jobs:
 
     - name: Move EXE to bin folder
       run: |
-        move /Y ./dist/your_script.exe ./bin/your_script.exe  # Move the EXE to the bin folder
+        New-Item -ItemType Directory -Force -Path ./bin  # Create the bin folder if it doesn't exist
+        Move-Item -Path ./dist/your_script.exe -Destination ./bin/your_script.exe  # Move the EXE to the bin folder
+
 
     - name: Commit and push EXE to repository
       run: |
