@@ -16,14 +16,14 @@ Fill in all the details, press "Generate Pack" when you are ready.
 To get your items in game, run /function YOURNAMESPACE:give_items
 
 ## Next Update
-- v1.9.0 Pre Release 3 will add custom recipes for custom blocks & items.
+- v1.9.0 Pre Release 4 will add support for custom recipes for custom blocks.
+- v1.9.0 Pre Release 5 will introduce a new system for adding custom components to custom items.
+- v1.9.0 Full Release will have GUI theme improvements, as well as improved Mac support.
 
 ## In Progress
 - MacOS native binary (@JustJoshinDev)
 
 ### Known Issues
-Currently, if you create an item with a NON-CUSTOM model, the program will crash. *This is being worked on*
-
 The UI is broken if you run the code on MacOS. *This is being worked on* (@JustJoshinDev)
 
 The tool was made entirely by me and lots of help from @JustJoshinDev, but the method for adding custom blocks was developed by https://youtube.com/@WASDBuildTeam and improved upon by me!
