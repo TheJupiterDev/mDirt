@@ -31,7 +31,7 @@ jobs:
         pyinstaller --noconfirm --onefile --windowed --icon "lib\mDirt.ico" --add-data "src\ui.py;." --add-data "src\item_models.json;." --add-data "src\item_list.json;." --add-data "src\item_select.py;."  "src\main.py"
 
     - name: Create release
-      uses: gh action: create-release@v1.10.0
+      uses: gh actions/create-release@v1.10.0
       with:
         tag_name: ${{ github.ref }}
         release_name: Release ${{ github.ref }}
