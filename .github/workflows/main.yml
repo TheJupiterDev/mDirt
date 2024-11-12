@@ -1,10 +1,8 @@
-name: Build and Add EXE to Bin Folder
+name: Build and Upload EXE to Release
 
 on:
-  push:
-    tags:
-      - 'v*'  # Triggers when a new tag matching v* is pushed
-  workflow_dispatch:  # Allows manual triggering from the GitHub UI
+  release:
+    types: [published, prereleased]  # Trigger on both published and prereleased events
 
 jobs:
   build:
@@ -33,18 +31,17 @@ jobs:
 
     - name: Create bin folder
       run: |
-        mkdir -p bin  # Create the bin folder if it doesn't exist
+        New-Item -ItemType Directory -Force -Path ./bin  # Create the bin folder if it doesn't exist
 
     - name: Move EXE to bin folder
       run: |
-        New-Item -ItemType Directory -Force -Path ./bin  # Create the bin folder if it doesn't exist
         Move-Item -Path ./dist/main.exe -Destination ./bin/main.exe  # Move the EXE to the bin folder
 
-
-    - name: Commit and push EXE to repository
-      run: |
-        git config --global user.name "GitHub Actions"
-        git config --global user.email "actions@github.com"
-        git add bin/main.exe  # Add the EXE file to the staging area
-        git commit -m "Add EXE to bin folder"
-        git push  # Push the EXE to the repository
+    - name: Upload EXE to GitHub Release
+      uses: gh actions/upload-release-asset@v1
+      with:
+        repository: ${{ github.repository }}
+        tag: ${{ github.event.release.tag_name }}  # Get the tag name of the release
+        asset_path: ./bin/main.exe  # Path to the EXE
+        asset_name: main.exe  # Name of the asset for the release
+        asset_content_type: application/octet-stream  # Set the correct content type
