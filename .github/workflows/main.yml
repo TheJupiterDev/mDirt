@@ -3,7 +3,8 @@ name: Build and Release EXE
 on:
   push:
     tags:
-      - 'v*'  # Triggers the action when a new version tag is pushed
+      - 'v*'  # Triggers when a new tag matching v* is pushed
+  workflow_dispatch:  # Allows manual triggering from the GitHub UI
 
 jobs:
   build:
