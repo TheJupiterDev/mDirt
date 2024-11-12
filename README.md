@@ -16,9 +16,9 @@ Fill in all the details, press "Generate Pack" when you are ready.
 To get your items in game, run /function YOURNAMESPACE:give_items
 
 ## Next Update
-- v1.9.0 Pre Release 4 will add support for custom recipes for custom blocks.
 - v1.9.0 Pre Release 5 will introduce a new system for adding custom components to custom items.
 - v1.9.0 Full Release will have GUI theme improvements, as well as improved Mac support.
+- v1.10.0 will add support for custom Smelting, Campfire, Blasting, etc.
 
 ## In Progress
 - MacOS native binary (@JustJoshinDev)
