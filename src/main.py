@@ -74,8 +74,8 @@ class app:
             item_list = json.load(f)
 
         if id == 9:
-            # for block in self.blocks:
-            #     self.ui_form.comboBox.addItem(f'{self.blocks[block]["name"]}')
+            for block in self.blocks:
+                self.ui_form.comboBox.addItem(f'{self.blocks[block]["name"]}')
             for item in self.items:
                 self.ui_form.comboBox.addItem(f'{self.items[item]["name"]}')
         
@@ -781,11 +781,15 @@ class app:
                         if value != "" and value != None:
                             file.write('"' + letters[str(key).replace("'", '"')] + '":"minecraft:' + value + '"')
                             if i < len(items) -1: file.write(',')
-                    if not recip["9"] in self.items:
+                    if not recip["9"] in self.items and not recip["9"] in self.blocks:
                         file.write('},"result": { "id":"minecraft:' + recip[str(9)] + '", "count":' + self.recipes[recipe]["count"] + '}}')
-                    else:
+                    elif recip["9"] in self.items:
                         idx = self.items[recip["9"]]
                         file.write('},"result":{ "id":"' + idx["baseItem"] + '", "count":' + self.recipes[recipe]["count"] + ', "components": {"minecraft:item_name":"{\"italic\":false,\"text\":\"' + idx["displayName"] + '\"}", "minecraft:custom_model_data": ' + self.generated_cmds["items"][idx["name"]] + '}}}')
+                    elif recip["9"] in self.blocks:
+                        idx = self.blocks[recip["9"]]
+                        file.write('},"result":{ "id":"' + 'minecraft:item_frame' + '", "count":' + self.recipes[recipe]["count"] + ', "components": {"minecraft:custom_model_data": ' + self.generated_cmds["blocks"][idx["name"]] + ',"minecraft:custom_name": "{\\"italic\\":false,\\"text\\":\\"' + idx["displayName"] + '\\"}","minecraft:entity_data": {"id": "minecraft:item_frame","Fixed": true,"Invisible": true,"Silent": true,"Invulnerable": true,"Facing": 1,"Tags": ["' + self.packAuthor + '.item_frame_block","' + self.packAuthor + '.' + idx["name"] + '"]}}}}')
+                        
             else:
                 with open(f'{self.packNamespace}\\recipe\\{self.recipes[recipe]["name"]}.json', 'a') as file:
                     recip = self.recipes[recipe]["items"]
@@ -797,9 +801,12 @@ class app:
                             if ingredient < len(items) - 1: file.write(',')
                     if not recip["9"] in self.items:
                         file.write('],"result":{"id": "minecraft:' + recip[str(9)] + '", "count":' + self.recipes[recipe]["count"] + '}}')
-                    else:
+                    elif recip["9"] in self.items:
                         idx = self.items[recip["9"]]
                         file.write('},"result":{ "id":"' + idx["baseItem"] + '", "count":' + self.recipes[recipe]["count"] + ', "components": {"minecraft:item_name":"{\"italic\":false,\"text\":\"' + idx["displayName"] + '\"}", "minecraft:custom_model_data": ' + self.generated_cmds["items"][idx["name"]] + '}}}')
+                    elif recip["9"] in self.blocks:
+                        idx = self.blocks[recip["9"]]
+                        file.write('},"result":{ "id":"' + 'minecraft:item_frame' + '", "count":' + self.recipes[recipe]["count"] + ', "components": {"minecraft:custom_model_data": ' + self.generated_cmds["blocks"][idx["name"]] + ',"minecraft:custom_name": "{\\"italic\\":false,\\"text\\":\\"' + idx["displayName"] + '\\"}","minecraft:entity_data": {"id": "minecraft:item_frame","Fixed": true,"Invisible": true,"Silent": true,"Invulnerable": true,"Facing": 1,"Tags": ["' + self.packAuthor + '.item_frame_block","' + self.packAuthor + '.' + idx["name"] + '"]}}}}')
 
         self.setStatus("Generated!")     
 
