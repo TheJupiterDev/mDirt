@@ -1,4 +1,4 @@
-name: Build and Release EXE
+name: Build and Add EXE to Bin Folder
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest  # Use a Linux runner (can also use windows-latest if needed)
+    runs-on: windows-latest  # Use a Windows runner
     
     steps:
     - name: Checkout code
@@ -31,14 +31,18 @@ jobs:
       run: |
         pyinstaller --noconfirm --onefile --windowed --icon "lib\mDirt.ico" --add-data "src\ui.py;." --add-data "src\item_models.json;." --add-data "src\item_list.json;." --add-data "src\item_select.py;."  "src\main.py"
 
-    - name: Create release
-      uses: gh actions/create-release@v1.10.0
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        body: 'Automated release created by GitHub Actions.'
+    - name: Create bin folder
+      run: |
+        mkdir -p bin  # Create the bin folder if it doesn't exist
 
-    - name: Upload EXE to release
-      uses: ncipollo/release-action@v1
-      with:
-        files: ./dist/your_script.exe  # Path to the compiled EXE
+    - name: Move EXE to bin folder
+      run: |
+        move /Y ./dist/your_script.exe ./bin/your_script.exe  # Move the EXE to the bin folder
+
+    - name: Commit and push EXE to repository
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add bin/your_script.exe  # Add the EXE file to the staging area
+        git commit -m "Add EXE to bin folder"
+        git push  # Push the EXE to the repository
