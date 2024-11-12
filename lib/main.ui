@@ -1596,6 +1596,9 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       </property>
      </widget>
      <widget class="QTextEdit" name="itemComponents">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -1605,7 +1608,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Any custom components you want to add to the item. &lt;span style=&quot; font-weight:600;&quot;&gt;This will be removed in a future update.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;This feature is in development and is not enabled at the current time!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Any custom components you want to add to the item.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="placeholderText">
        <string>minecraft:custom_data={my_data:1b},attributes={[]}</string>
