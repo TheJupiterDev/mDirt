@@ -20,7 +20,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install PyQt5  # Adjust if you need other dependencies
+        pip install PySide6  # Adjust if you need other dependencies
 
     - name: Install pyinstaller
       run: pip install pyinstaller  # Install pyinstaller to compile the EXE
@@ -38,7 +38,7 @@ jobs:
         Move-Item -Path ./dist/main.exe -Destination ./bin/main.exe  # Move the EXE to the bin folder
 
     - name: Upload EXE to GitHub Release
-      uses: gh actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@v1
       with:
         repository: ${{ github.repository }}
         tag: ${{ github.event.release.tag_name }}  # Get the tag name of the release
