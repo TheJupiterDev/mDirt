@@ -45,4 +45,3 @@ jobs:
         asset_path: ./bin/main.exe  # Path to the EXE
         asset_name: main.exe  # Name of the asset for the release
         asset_content_type: application/octet-stream  # Set the correct content type
-        token: ${{ secrets.GITHUB_TOKEN }}  # Provide the GITHUB_TOKEN for authentication
