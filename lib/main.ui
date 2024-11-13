@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>923</width>
-    <height>792</height>
+    <height>714</height>
    </rect>
   </property>
   <property name="cursor">
@@ -55,11 +55,11 @@ QLabel #a, #topFace, #leftFace, #backFace, #rightFace, #bottomFace, #frontFace, 
       <x>0</x>
       <y>0</y>
       <width>921</width>
-      <height>761</height>
+      <height>681</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -1178,8 +1178,8 @@ QLabel #a, #topFace, #leftFace, #backFace, #rightFace, #bottomFace, #frontFace, 
      <widget class="QPushButton" name="itemAddButton">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>440</y>
+        <x>510</x>
+        <y>490</y>
         <width>75</width>
         <height>23</height>
        </rect>
@@ -1189,6 +1189,51 @@ QLabel #a, #topFace, #leftFace, #backFace, #rightFace, #bottomFace, #frontFace, 
       </property>
       <property name="text">
        <string>Add Item</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>170</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Components:</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>170</y>
+        <width>181</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>170</y>
+        <width>31</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
       </property>
      </widget>
     </widget>
