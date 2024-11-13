@@ -1,9 +1,9 @@
 import json.tool, os, sys, shutil, json, ast
 from ui import Ui_MainWindow
 from item_select import Ui_Form
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QWidget
-from PyQt5.QtGui import QPixmap, QImage
-from PyQt5.QtCore import Qt
+from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QWidget
+from PySide6.QtGui import QPixmap, QImage
+from PySide6.QtCore import Qt
 
 class app:
     def __init__(self):
@@ -26,7 +26,6 @@ class app:
 
         self.app = QApplication(sys.argv)
         self.mainwindow = QMainWindow()
-        self.app.setStyle("Fusion")
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.mainwindow)
         self.mainwindow.show()
@@ -191,7 +190,7 @@ class app:
     def getItemTexture(self):
         self.itemTexture = QFileDialog.getOpenFileName(self.mainwindow, "Open Texture File", "", "PNG Files (*.png)")[0]
         self.image = QImage(self.itemTexture)
-        self.pixmap = QPixmap.fromImage(self.image).scaled(41, 41, aspectRatioMode=Qt.KeepAspectRatio)
+        self.pixmap = QPixmap.fromImage(self.image).scaled(41, 41, Qt.AspectRatioMode.KeepAspectRatio)
         self.ui.itemTextureLabel.setPixmap(self.pixmap)
 
     def getBlockTexture(self, id):
@@ -200,7 +199,7 @@ class app:
         self.image = QImage(self.texture[self.id])
 
         if self.texture[self.id] != "":
-            self.pixmap = QPixmap.fromImage(self.image).scaled(41, 41, aspectRatioMode=Qt.KeepAspectRatio)
+            self.pixmap = QPixmap.fromImage(self.image).scaled(41, 41, Qt.AspectRatioMode.KeepAspectRatio)
             if self.id == "0":
                 self.ui.backFace.setPixmap(self.pixmap)
             elif self.id == "1":
@@ -265,7 +264,6 @@ class app:
             "displayName": self.ui.itemDisplayName.text(),
             "baseItem": self.ui.itemBase.text(),
             "texture": self.itemTexture,
-            "components": self.ui.itemComponents.toPlainText(),
             "model": self.ui.itemModel.currentText().lower()
         }
 
@@ -348,7 +346,6 @@ class app:
         self.ui.itemDisplayName.setText("")
         self.ui.itemName.setText("")
         self.ui.itemBase.setText("")
-        self.ui.itemComponents.setText("")
         self.ui.itemTextureLabel.clear()
 
     def clearBlockFields(self):
@@ -397,7 +394,6 @@ class app:
         self.ui.itemName.setText(properties["name"])
         self.ui.itemDisplayName.setText(properties["displayName"])
         self.ui.itemBase.setText(properties["baseItem"])
-        self.ui.itemComponents.setText(properties["components"])
         self.ui.itemModel.setCurrentText(properties["model"])
 
         self.itemTexture = properties["texture"]
@@ -704,7 +700,7 @@ class app:
             for self.itm in self.items.keys():
                 self.blockNumLoop += 1
                 self.personalCMD = self.parse(self.customModelDataPrefix, self.blockNumLoop)
-                file.write('give @s ' + self.items[self.itm]["baseItem"] + '[item_name=\'{"italic":false,"text":"' + self.items[self.itm]["displayName"] + '"}\',custom_model_data=' + self.personalCMD + self.items[self.itm]["components"] + '] 1\n')
+                file.write('give @s ' + self.items[self.itm]["baseItem"] + '[item_name=\'{"italic":false,"text":"' + self.items[self.itm]["displayName"] + '"}\',custom_model_data=' + self.personalCMD + '] 1\n')
             file.close()
         
         
