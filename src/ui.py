@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainyzkPoj.ui'
+## Form generated from reading UI file 'mainBviEms.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(923, 762)
+        MainWindow.resize(923, 714)
         MainWindow.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon = QIcon()
         icon.addFile(u"mDirt.ico", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -341,12 +341,15 @@ class Ui_MainWindow(object):
         self.itemAddButton.setGeometry(QRect(510, 490, 75, 23))
         self.label_20 = QLabel(self.tab_3)
         self.label_20.setObjectName(u"label_20")
+        self.label_20.setEnabled(False)
         self.label_20.setGeometry(QRect(40, 170, 81, 16))
         self.comboBox = QComboBox(self.tab_3)
         self.comboBox.setObjectName(u"comboBox")
+        self.comboBox.setEnabled(False)
         self.comboBox.setGeometry(QRect(120, 170, 181, 22))
         self.pushButton = QPushButton(self.tab_3)
         self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setEnabled(False)
         self.pushButton.setGeometry(QRect(300, 170, 31, 24))
         self.tabWidget.addTab(self.tab_3, "")
         self.tab_4 = QWidget()
@@ -562,7 +565,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(0)
 
 
