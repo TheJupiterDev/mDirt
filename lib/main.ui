@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>923</width>
-    <height>714</height>
+    <height>735</height>
    </rect>
   </property>
   <property name="cursor">
@@ -21,16 +21,7 @@
     <normaloff>mDirt.ico</normaloff>mDirt.ico</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">QPushButton #a, #slot0, #slot1, #slot2, #slot3, #slot4, #slot5, #slot6, #slot7, #slot8, #slot9 {
-background-color: rgba(255, 255, 255, 0)
-}
-
-QLabel #a, #topFace, #leftFace, #backFace, #rightFace, #bottomFace, #frontFace, #itemTextureLabel, #slot0, #slot1, #slot2, #slot3, #slot4, #slot5, #slot6, #slot7, #slot8, #slot9
-{
-	border: 2px solid grey;
-	border-radius: 5px;
-}
-</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="status">
@@ -1951,7 +1942,25 @@ QLabel #a, #topFace, #leftFace, #backFace, #rightFace, #bottomFace, #frontFace, 
     <addaction name="actionImport_from_mrdt"/>
     <addaction name="actionExport_to_mrdt_2"/>
    </widget>
+   <widget class="QMenu" name="menuTheme">
+    <property name="title">
+     <string>Theme</string>
+    </property>
+    <widget class="QMenu" name="menuColored">
+     <property name="title">
+      <string>Colored</string>
+     </property>
+     <addaction name="actionBlue"/>
+     <addaction name="actionGreen"/>
+     <addaction name="actionRed"/>
+     <addaction name="actionPurple"/>
+    </widget>
+    <addaction name="actionDark_default"/>
+    <addaction name="actionLight"/>
+    <addaction name="menuColored"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuTheme"/>
   </widget>
   <action name="actionImport_from_mrdt">
    <property name="text">
@@ -1966,6 +1975,36 @@ QLabel #a, #topFace, #leftFace, #backFace, #rightFace, #bottomFace, #frontFace, 
   <action name="actionExport_to_mrdt_2">
    <property name="text">
     <string>Export to .mrdt</string>
+   </property>
+  </action>
+  <action name="actionDark_default">
+   <property name="text">
+    <string>Dark (default)</string>
+   </property>
+  </action>
+  <action name="actionLight">
+   <property name="text">
+    <string>Light</string>
+   </property>
+  </action>
+  <action name="actionBlue">
+   <property name="text">
+    <string>Blue</string>
+   </property>
+  </action>
+  <action name="actionGreen">
+   <property name="text">
+    <string>Green</string>
+   </property>
+  </action>
+  <action name="actionRed">
+   <property name="text">
+    <string>Red</string>
+   </property>
+  </action>
+  <action name="actionPurple">
+   <property name="text">
+    <string>Purple</string>
    </property>
   </action>
  </widget>
