@@ -202,3 +202,8 @@ QProgressBar {
 QProgressBar::chunk {
     background-color: #6dbd44;
 }
+QPushButton[flat="true"] {
+    background-color: transparent;
+    border: none;
+    color: transparent;  /* Hide the text */
+}

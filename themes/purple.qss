@@ -174,3 +174,8 @@ QProgressBar {
 QProgressBar::chunk {
     background-color: #8e24aa; /* Purple Progress */
 }
+QPushButton[flat="true"] {
+    background-color: transparent;
+    border: none;
+    color: transparent;  /* Hide the text */
+}
