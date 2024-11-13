@@ -2,7 +2,7 @@ name: Build and Upload EXE to Release
 
 on:
   release:
-    types: [published, prereleased]  # Trigger on both published and prereleased events
+    types: [published]  # Trigger only on published releases
 
 jobs:
   build:
