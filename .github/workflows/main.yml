@@ -3,7 +3,7 @@ name: Build and Upload EXE to Latest Release
 on:
   workflow_dispatch:  # Allows manual triggering from the GitHub UI
   release:
-    types: [published]  # Trigger on both published and prereleased events
+    types: [published, prereleased]  # Trigger on both published and prereleased events
 
 jobs:
   build:
