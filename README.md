@@ -16,9 +16,8 @@ Fill in all the details, press "Generate Pack" when you are ready.
 To get your items in game, run /function YOURNAMESPACE:give_items
 
 ## Next Update
-- Components for Items is now **permanently delayed**!
-- Custom Recipes for smelting, blasting, campfire, etc. Will be coming soon!
-- Major UI theme overhaul coming soon!
+- Custom Recipes for smelting, blasting, campfire, etc.
+- Custom Components for Custom Items.
 
 ## In Progress
 - MacOS native binary (@JustJoshinDev)
