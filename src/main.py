@@ -28,7 +28,7 @@ class app:
         self.mainwindow = QMainWindow()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.mainwindow)
-        self.mainwindow.setStyleSheet(open("./themes/dark.qss", "r").read())
+        self.mainwindow.setStyleSheet(open("themes/dark.qss", "r").read())
         self.mainwindow.show()
 
         self.ui.actionImport_from_mrdt.triggered.connect(self.imported)
@@ -63,7 +63,7 @@ class app:
         self.ui.actionLight.triggered.connect(lambda: self.switchTheme("light"))
     
     def switchTheme(self, theme):
-        self.mainwindow.setStyleSheet(open(f"./themes/{theme}.qss", "r").read())
+        self.mainwindow.setStyleSheet(open(f"themes/{theme}.qss", "r").read())
     
     def checkRecipeButtons(self):
         self.ui.slot0.clicked.connect(lambda: self.recipeSlot(0))
