@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainBviEms.ui'
+## Form generated from reading UI file 'mainJVxtek.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -26,27 +26,30 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(923, 714)
+        MainWindow.resize(923, 735)
         MainWindow.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon = QIcon()
         icon.addFile(u"mDirt.ico", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
-        MainWindow.setStyleSheet(u"QPushButton #a, #slot0, #slot1, #slot2, #slot3, #slot4, #slot5, #slot6, #slot7, #slot8, #slot9 {\n"
-"background-color: rgba(255, 255, 255, 0)\n"
-"}\n"
-"\n"
-"QLabel #a, #topFace, #leftFace, #backFace, #rightFace, #bottomFace, #frontFace, #itemTextureLabel, #slot0, #slot1, #slot2, #slot3, #slot4, #slot5, #slot6, #slot7, #slot8, #slot9\n"
-"{\n"
-"	border: 2px solid grey;\n"
-"	border-radius: 5px;\n"
-"}\n"
-"")
+        MainWindow.setStyleSheet(u"")
         self.actionImport_from_mrdt = QAction(MainWindow)
         self.actionImport_from_mrdt.setObjectName(u"actionImport_from_mrdt")
         self.actiont = QAction(MainWindow)
         self.actiont.setObjectName(u"actiont")
         self.actionExport_to_mrdt_2 = QAction(MainWindow)
         self.actionExport_to_mrdt_2.setObjectName(u"actionExport_to_mrdt_2")
+        self.actionDark_default = QAction(MainWindow)
+        self.actionDark_default.setObjectName(u"actionDark_default")
+        self.actionLight = QAction(MainWindow)
+        self.actionLight.setObjectName(u"actionLight")
+        self.actionBlue = QAction(MainWindow)
+        self.actionBlue.setObjectName(u"actionBlue")
+        self.actionGreen = QAction(MainWindow)
+        self.actionGreen.setObjectName(u"actionGreen")
+        self.actionRed = QAction(MainWindow)
+        self.actionRed.setObjectName(u"actionRed")
+        self.actionPurple = QAction(MainWindow)
+        self.actionPurple.setObjectName(u"actionPurple")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.status = QLabel(self.centralwidget)
@@ -557,11 +560,23 @@ class Ui_MainWindow(object):
         self.menuBar.setGeometry(QRect(0, 0, 923, 33))
         self.menuFile = QMenu(self.menuBar)
         self.menuFile.setObjectName(u"menuFile")
+        self.menuTheme = QMenu(self.menuBar)
+        self.menuTheme.setObjectName(u"menuTheme")
+        self.menuColored = QMenu(self.menuTheme)
+        self.menuColored.setObjectName(u"menuColored")
         MainWindow.setMenuBar(self.menuBar)
 
         self.menuBar.addAction(self.menuFile.menuAction())
+        self.menuBar.addAction(self.menuTheme.menuAction())
         self.menuFile.addAction(self.actionImport_from_mrdt)
         self.menuFile.addAction(self.actionExport_to_mrdt_2)
+        self.menuTheme.addAction(self.actionDark_default)
+        self.menuTheme.addAction(self.actionLight)
+        self.menuTheme.addAction(self.menuColored.menuAction())
+        self.menuColored.addAction(self.actionBlue)
+        self.menuColored.addAction(self.actionGreen)
+        self.menuColored.addAction(self.actionRed)
+        self.menuColored.addAction(self.actionPurple)
 
         self.retranslateUi(MainWindow)
 
@@ -577,6 +592,12 @@ class Ui_MainWindow(object):
         self.actionImport_from_mrdt.setText(QCoreApplication.translate("MainWindow", u"Import from .mrdt", None))
         self.actiont.setText(QCoreApplication.translate("MainWindow", u"t", None))
         self.actionExport_to_mrdt_2.setText(QCoreApplication.translate("MainWindow", u"Export to .mrdt", None))
+        self.actionDark_default.setText(QCoreApplication.translate("MainWindow", u"Dark (default)", None))
+        self.actionLight.setText(QCoreApplication.translate("MainWindow", u"Light", None))
+        self.actionBlue.setText(QCoreApplication.translate("MainWindow", u"Blue", None))
+        self.actionGreen.setText(QCoreApplication.translate("MainWindow", u"Green", None))
+        self.actionRed.setText(QCoreApplication.translate("MainWindow", u"Red", None))
+        self.actionPurple.setText(QCoreApplication.translate("MainWindow", u"Purple", None))
         self.status.setText("")
 #if QT_CONFIG(tooltip)
         self.author.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>The author of the pack. This is used occasionally in the datapack, and should only be lowercase characters, nothing else.</p></body></html>", None))
@@ -837,5 +858,7 @@ class Ui_MainWindow(object):
         self.buttonAddRecipe.setText(QCoreApplication.translate("MainWindow", u"Add", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), QCoreApplication.translate("MainWindow", u"Recipes", None))
         self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
+        self.menuTheme.setTitle(QCoreApplication.translate("MainWindow", u"Theme", None))
+        self.menuColored.setTitle(QCoreApplication.translate("MainWindow", u"Colored", None))
     # retranslateUi
 
