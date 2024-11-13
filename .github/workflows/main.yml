@@ -35,7 +35,9 @@ jobs:
 
     - name: Move EXE to bin folder
       run: |
+        Remove-Item -Path ./bin/main.exe -Force -ErrorAction SilentlyContinue  # Remove the existing file if it exists
         Move-Item -Path ./dist/main.exe -Destination ./bin/main.exe  # Move the EXE to the bin folder
+
 
     - name: Upload EXE to GitHub Release
       uses: actions/upload-release-asset@v1
