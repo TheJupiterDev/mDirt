@@ -1,0 +1,176 @@
+QPushButton #a, #slot0, #slot1, #slot2, #slot3, #slot4, #slot5, #slot6, #slot7, #slot8, #slot9 {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+QLabel #a, #topFace, #leftFace, #backFace, #rightFace, #bottomFace, #frontFace, #itemTextureLabel, #slot0, #slot1, #slot2, #slot3, #slot4, #slot5, #slot6, #slot7, #slot8, #slot9 {
+    border: 2px solid #d32f2f;  /* Red border */
+    border-radius: 5px;
+}
+
+* {
+    background: #ffebee;  /* Light Red */
+    color: #b71c1c;  /* Dark Red text */
+    selection-background-color: #ef9a9a;
+    selection-color: #b71c1c;
+}
+
+QWidget {
+    background: #ffebee;
+    color: #b71c1c;
+    border: none;
+}
+
+QPushButton {
+    background-color: #e57373; /* Red */
+    border: 1px solid #d32f2f; /* Red border */
+    border-radius: 4px;
+    color: #b71c1c;
+}
+
+QPushButton:hover {
+    background-color: #ef5350; /* Hover Red */
+}
+
+QPushButton:pressed {
+    background-color: #c62828; /* Pressed Red */
+}
+
+QLineEdit {
+    background-color: #e57373;
+    border: 1px solid #d32f2f;
+    border-radius: 4px;
+    color: #b71c1c;
+}
+
+QLineEdit:focus {
+    border-color: #f44336; /* Focus Red */
+    background-color: #ffffff;
+}
+
+QLineEdit::clear-button {
+    border: none;
+    background-color: transparent;
+}
+
+QLabel {
+    color: #b71c1c;
+    font-size: 11px;
+}
+
+QComboBox {
+    background-color: #e57373;
+    border: 1px solid #d32f2f;
+    border-radius: 4px;
+    color: #b71c1c;
+    min-width: 120px;
+}
+
+QComboBox:hover {
+    border-color: #f44336; /* Hover Red */
+}
+
+QSpinBox {
+    background-color: #e57373;
+    border: 1px solid #d32f2f;
+    border-radius: 4px;
+    color: #b71c1c;
+}
+
+QSpinBox:hover {
+    border-color: #f44336; /* Hover Red */
+}
+
+QSlider {
+    background: #ef9a9a; /* Red Slider */
+    height: 6px;
+    border-radius: 3px;
+}
+
+QSlider::handle {
+    background: #f44336; /* Slider Handle */
+    border-radius: 3px;
+    width: 12px;
+}
+
+QCheckBox, QRadioButton {
+    color: #b71c1c;
+}
+
+QCheckBox::indicator, QRadioButton::indicator {
+    border: 1px solid #d32f2f;
+    background: #e57373;
+    width: 14px;
+    height: 14px;
+}
+
+QCheckBox::indicator:checked, QRadioButton::indicator:checked {
+    background: #f44336; /* Checked Red */
+    border: 1px solid #f44336;
+}
+
+QGroupBox {
+    border: 1px solid #d32f2f;
+    border-radius: 5px;
+}
+
+QGroupBox::title {
+    font-weight: bold;
+    font-size: 12px;
+    color: #b71c1c;
+}
+
+QTabWidget {
+    background-color: #ffffff;
+    border: 1px solid #d32f2f;
+    border-radius: 4px;
+}
+
+QTabWidget::pane {
+    background-color: #ffebee;
+    border: 1px solid #d32f2f;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+QTabBar::tab {
+    background-color: #e57373;
+    padding: 8px;
+    margin: 0 2px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+QTabBar::tab:selected {
+    background-color: #f44336; /* Selected Red */
+    color: #ffffff;
+    font-weight: bold;
+}
+
+QListView {
+    background-color: #e57373;
+    border: 1px solid #d32f2f;
+    border-radius: 4px;
+}
+
+QScrollBar:horizontal, QScrollBar:vertical {
+    background-color: #e57373;
+    border: 1px solid #d32f2f;
+    width: 12px;
+    height: 12px;
+}
+
+QScrollBar::handle:horizontal, QScrollBar::handle:vertical {
+    background-color: #f44336;
+    border-radius: 6px;
+}
+
+QProgressBar {
+    background-color: #e57373;
+    border: 1px solid #d32f2f;
+    border-radius: 4px;
+    text-align: center;
+}
+
+QProgressBar::chunk {
+    background-color: #f44336; /* Red Progress */
+}
