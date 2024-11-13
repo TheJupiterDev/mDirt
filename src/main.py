@@ -69,8 +69,8 @@ class app:
         self.ui_form = Ui_Form()
         self.ui_form.setupUi(self.block_popup)
 
-        with open(f'{os.path.dirname(os.path.abspath(__file__)) + '\\item_list.json'}', 'r') as f:
-            item_list = json.load(f)
+        with open(f'{os.path.dirname(os.path.abspath(__file__)) + '\\data.json'}', 'r') as f:
+            item_list = json.load(f)["items"]
 
         if id == 9:
             for block in self.blocks:
@@ -78,7 +78,7 @@ class app:
             for item in self.items:
                 self.ui_form.comboBox.addItem(f'{self.items[item]["name"]}')
         
-        for item in item_list["items"]:
+        for item in item_list:
             self.ui_form.comboBox.addItem(item)
 
         self.block_popup.show()
@@ -559,8 +559,8 @@ class app:
         
         self.setStatus("Generating...")
 
-        with open(f'{os.path.dirname(os.path.abspath(__file__)) + '\\item_models.json'}', 'r') as f:
-            self.item_models = json.load(f)
+        with open(f'{os.path.dirname(os.path.abspath(__file__)) + '\\data.json'}', 'r') as f:
+            self.item_models = json.load(f)["models"]
         
         for self.itm in self.items:
             if self.items[self.itm]["baseItem"] not in self.item_models.keys():

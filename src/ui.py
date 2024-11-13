@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainTjNSrg.ui'
+## Form generated from reading UI file 'mainyzkPoj.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(923, 792)
+        MainWindow.resize(923, 762)
         MainWindow.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon = QIcon()
         icon.addFile(u"mDirt.ico", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -55,7 +55,7 @@ class Ui_MainWindow(object):
         self.status.setGeometry(QRect(600, 420, 281, 20))
         self.tabWidget = QTabWidget(self.centralwidget)
         self.tabWidget.setObjectName(u"tabWidget")
-        self.tabWidget.setGeometry(QRect(0, 0, 921, 761))
+        self.tabWidget.setGeometry(QRect(0, 0, 921, 681))
         self.tab = QWidget()
         self.tab.setObjectName(u"tab")
         self.author = QLineEdit(self.tab)
@@ -338,7 +338,16 @@ class Ui_MainWindow(object):
         self.itemModel.setGeometry(QRect(300, 90, 91, 22))
         self.itemAddButton = QPushButton(self.tab_3)
         self.itemAddButton.setObjectName(u"itemAddButton")
-        self.itemAddButton.setGeometry(QRect(230, 440, 75, 23))
+        self.itemAddButton.setGeometry(QRect(510, 490, 75, 23))
+        self.label_20 = QLabel(self.tab_3)
+        self.label_20.setObjectName(u"label_20")
+        self.label_20.setGeometry(QRect(40, 170, 81, 16))
+        self.comboBox = QComboBox(self.tab_3)
+        self.comboBox.setObjectName(u"comboBox")
+        self.comboBox.setGeometry(QRect(120, 170, 181, 22))
+        self.pushButton = QPushButton(self.tab_3)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(300, 170, 31, 24))
         self.tabWidget.addTab(self.tab_3, "")
         self.tab_4 = QWidget()
         self.tab_4.setObjectName(u"tab_4")
@@ -553,7 +562,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(2)
         self.tabWidget_2.setCurrentIndex(0)
 
 
@@ -736,6 +745,8 @@ class Ui_MainWindow(object):
         self.itemAddButton.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Adds the item to be generated!</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.itemAddButton.setText(QCoreApplication.translate("MainWindow", u"Add Item", None))
+        self.label_20.setText(QCoreApplication.translate("MainWindow", u"Components:", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"+", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"Items", None))
 #if QT_CONFIG(tooltip)
         self.recipeList.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>A list of all custom recipes you have created.</p></body></html>", None))
