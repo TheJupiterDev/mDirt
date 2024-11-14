@@ -18,11 +18,11 @@ class app:
             "blocks": {}
             }
 
-        self.recipe = {"0": "", "1": "", "2": "", "3": "", "4": "", "5": "", "6": "", "7": "", "8": "", "9": ""}
+        self.recipe = {"0": "", "1": "", "2": "", "3": "", "4": "", "5": "", "6": "", "7": "", "8": "", "9": "", "10": "", "11": ""}
         self.texture = {"0": "", "1": "", "2": "", "3": "", "4": "", "5": ""}
         self.blockNum = 0
 
-        self.header = '#####################################\n#   This File Was Created By mDirt  #\n#              v1.9.0               #\n#   Copyright 2024 by Jupiter Dev   #\n#####################################\n'
+        self.header = '#####################################\n#   This File Was Created By mDirt  #\n#              v1.10.0              #\n#   Copyright 2024 by Jupiter Dev   #\n#####################################\n'
 
         self.app = QApplication(sys.argv)
         self.mainwindow = QMainWindow()
@@ -76,6 +76,9 @@ class app:
         self.ui.slot7.clicked.connect(lambda: self.recipeSlot(7))
         self.ui.slot8.clicked.connect(lambda: self.recipeSlot(8))
         self.ui.slot9.clicked.connect(lambda: self.recipeSlot(9))
+
+        self.ui.input.clicked.connect(lambda: self.recipeSlot(10))
+        self.ui.output.clicked.connect(lambda: self.recipeSlot(11))
     
     def recipeSlot(self, id):
         self.block_popup = QWidget()
@@ -85,7 +88,7 @@ class app:
         with open(f'{os.path.dirname(os.path.abspath(__file__)) + '\\data.json'}', 'r') as f:
             item_list = json.load(f)["items"]
 
-        if id == 9:
+        if id == 9 or id == 11:
             for block in self.blocks:
                 self.ui_form.comboBox.addItem(f'{self.blocks[block]["name"]}')
             for item in self.items:
@@ -120,6 +123,10 @@ class app:
             self.ui.slot8Label.setText(item)
         elif id == 9:
             self.ui.slot9Label.setText(item)
+        elif id == 10:
+            self.ui.inputLabel.setText(item)
+        elif id == 11:
+            self.ui.outputLabel.setText(item)
         self.block_popup.close()
 
     def getBlockModel(self):
@@ -248,6 +255,7 @@ class app:
     
     def checkRecipeAdd(self):
         self.ui.buttonAddRecipe.clicked.connect(self.addRecipe)
+        self.ui.buttonAddRecipe_2.clicked.connect(self.addSmelting)
     
     def checkRecipeRemove(self):
         self.ui.buttonRemoveRecipe.clicked.connect(self.removeRecipe)
@@ -257,6 +265,17 @@ class app:
 
     def checkGenerate(self):
         self.ui.buttonGeneratePack.clicked.connect(self.generate)
+    
+    def addSmelting(self):
+        self.recipeProperties = {
+            "name": self.ui.lineEdit.text(),
+            "items": self.recipe,
+            "mode": "smelting"
+        }
+    
+        self.recipes[self.recipeProperties["name"]] = self.recipeProperties
+        self.ui.recipeList.addItem(self.recipeProperties["name"])
+        self.clearRecipeFields()
 
     def addRecipe(self):
         self.recipeProperties = {
@@ -264,7 +283,8 @@ class app:
             "shapeless": self.ui.shapeless.isChecked(),
             "exact": self.ui.exact.isChecked(),
             "items": self.recipe,
-            "count": str(self.ui.slot9Count.value())
+            "count": str(self.ui.slot9Count.value()),
+            "mode": "recipe"
         }
 
         self.recipes[self.recipeProperties["name"]] = self.recipeProperties
@@ -339,7 +359,7 @@ class app:
         self.clearBlockFields()
     
     def clearRecipeFields(self):
-        self.recipe = {"0": "", "1": "", "2": "", "3": "", "4": "", "5": "", "6": "", "7": "", "8": "", "9": ""}
+        self.recipe = {"0": "", "1": "", "2": "", "3": "", "4": "", "5": "", "6": "", "7": "", "8": "", "9": "", "10": "", "11": ""}
         self.ui.lineEdit.setText("")
         self.ui.shapeless.setChecked(False)
         self.ui.exact.setChecked(False)
@@ -353,6 +373,8 @@ class app:
         self.ui.slot7Label.setText("")
         self.ui.slot8Label.setText("")
         self.ui.slot9Label.setText("")
+        self.ui.outputLabel.setText("")
+        self.ui.inputLabel.setText("")
 
     def clearItemFields(self):
         self.itemTexture = None
@@ -734,87 +756,100 @@ class app:
         # Recipes
 
         for recipe in self.recipes:
-            if not self.recipes[recipe]["shapeless"]:
-                with open(f'{self.packNamespace}\\recipe\\{self.recipes[recipe]["name"]}.json', 'a') as file:
-                    file.truncate(0)
-                    file.seek(0)
-                    letters = {"0": "A", "1": "D", "2": "G", "3": "B", "4": "E", "5": "H", "6": "C", "7": "F", "8": "I"}
-                    recip = self.recipes[recipe]["items"]
-                    file.write('{"type": "minecraft:crafting_shaped", "pattern": ["')
-                    if recip["0"] != "":
-                        file.write("A")
-                    else:
-                        file.write(" ")
-                    if recip["3"] != "":
-                        file.write("B")
-                    else:
-                        file.write(" ")
-                    if recip["6"] != "":
-                        file.write("C")
-                    else:
-                        file.write(" ")
-                    
-                    file.write('","')
-
-                    if recip["1"] != "":
-                        file.write("D")
-                    else:
-                        file.write(" ")
-                    if recip["4"] != "":
-                        file.write("E")
-                    else:
-                        file.write(" ")
-                    if recip["7"] != "":
-                        file.write("F")
-                    else:
-                        file.write(" ")
-                    
-                    file.write('","')
-
-                    if recip["2"] != "":
-                        file.write("G")
-                    else:
-                        file.write(" ")
-                    if recip["5"] != "":
-                        file.write("H")
-                    else:
-                        file.write(" ")
-                    if recip["8"] != "":
-                        file.write("I")
-                    else:
-                        file.write(" ")
-
-                    file.write('"],"key":{')
-                    items = [(k, v) for k, v in recip.items() if v not in (None, '')][:-1]
-                    for i, (key, value) in enumerate(items):
-                        if value != "" and value != None:
-                            file.write('"' + letters[str(key).replace("'", '"')] + '":"minecraft:' + value + '"')
-                            if i < len(items) -1: file.write(',')
-                    if not recip["9"] in self.items and not recip["9"] in self.blocks:
-                        file.write('},"result": { "id":"minecraft:' + recip[str(9)] + '", "count":' + self.recipes[recipe]["count"] + '}}')
-                    elif recip["9"] in self.items:
-                        idx = self.items[recip["9"]]
-                        file.write('},"result":{ "id":"' + idx["baseItem"] + '", "count":' + self.recipes[recipe]["count"] + ', "components": {"minecraft:item_name":"{\"italic\":false,\"text\":\"' + idx["displayName"] + '\"}", "minecraft:custom_model_data": ' + self.generated_cmds["items"][idx["name"]] + '}}}')
-                    elif recip["9"] in self.blocks:
-                        idx = self.blocks[recip["9"]]
-                        file.write('},"result":{ "id":"' + 'minecraft:item_frame' + '", "count":' + self.recipes[recipe]["count"] + ', "components": {"minecraft:custom_model_data": ' + self.generated_cmds["blocks"][idx["name"]] + ',"minecraft:custom_name": "{\\"italic\\":false,\\"text\\":\\"' + idx["displayName"] + '\\"}","minecraft:entity_data": {"id": "minecraft:item_frame","Fixed": true,"Invisible": true,"Silent": true,"Invulnerable": true,"Facing": 1,"Tags": ["' + self.packAuthor + '.item_frame_block","' + self.packAuthor + '.' + idx["name"] + '"]}}}}')
+            if self.recipes[recipe]["mode"] == "recipe":
+                if not self.recipes[recipe]["shapeless"]:
+                    with open(f'{self.packNamespace}\\recipe\\{self.recipes[recipe]["name"]}.json', 'a') as file:
+                        file.truncate(0)
+                        file.seek(0)
+                        letters = {"0": "A", "1": "D", "2": "G", "3": "B", "4": "E", "5": "H", "6": "C", "7": "F", "8": "I"}
+                        recip = self.recipes[recipe]["items"]
+                        file.write('{"type": "minecraft:crafting_shaped", "pattern": ["')
+                        if recip["0"] != "":
+                            file.write("A")
+                        else:
+                            file.write(" ")
+                        if recip["3"] != "":
+                            file.write("B")
+                        else:
+                            file.write(" ")
+                        if recip["6"] != "":
+                            file.write("C")
+                        else:
+                            file.write(" ")
                         
-            else:
+                        file.write('","')
+
+                        if recip["1"] != "":
+                            file.write("D")
+                        else:
+                            file.write(" ")
+                        if recip["4"] != "":
+                            file.write("E")
+                        else:
+                            file.write(" ")
+                        if recip["7"] != "":
+                            file.write("F")
+                        else:
+                            file.write(" ")
+                        
+                        file.write('","')
+
+                        if recip["2"] != "":
+                            file.write("G")
+                        else:
+                            file.write(" ")
+                        if recip["5"] != "":
+                            file.write("H")
+                        else:
+                            file.write(" ")
+                        if recip["8"] != "":
+                            file.write("I")
+                        else:
+                            file.write(" ")
+
+                        file.write('"],"key":{')
+                        items = [(k, v) for k, v in recip.items() if v not in (None, '')][:-1]
+                        for i, (key, value) in enumerate(items):
+                            if value != "" and value != None:
+                                file.write('"' + letters[str(key).replace("'", '"')] + '":"minecraft:' + value + '"')
+                                if i < len(items) -1: file.write(',')
+                        if not recip["9"] in self.items and not recip["9"] in self.blocks:
+                            file.write('},"result": { "id":"minecraft:' + recip[str(9)] + '", "count":' + self.recipes[recipe]["count"] + '}}')
+                        elif recip["9"] in self.items:
+                            idx = self.items[recip["9"]]
+                            file.write('},"result":{ "id":"' + idx["baseItem"] + '", "count":' + self.recipes[recipe]["count"] + ', "components": {"minecraft:item_name":"{\"italic\":false,\"text\":\"' + idx["displayName"] + '\"}", "minecraft:custom_model_data": ' + self.generated_cmds["items"][idx["name"]] + '}}}')
+                        elif recip["9"] in self.blocks:
+                            idx = self.blocks[recip["9"]]
+                            file.write('},"result":{ "id":"' + 'minecraft:item_frame' + '", "count":' + self.recipes[recipe]["count"] + ', "components": {"minecraft:custom_model_data": ' + self.generated_cmds["blocks"][idx["name"]] + ',"minecraft:custom_name": "{\\"italic\\":false,\\"text\\":\\"' + idx["displayName"] + '\\"}","minecraft:entity_data": {"id": "minecraft:item_frame","Fixed": true,"Invisible": true,"Silent": true,"Invulnerable": true,"Facing": 1,"Tags": ["' + self.packAuthor + '.item_frame_block","' + self.packAuthor + '.' + idx["name"] + '"]}}}}')
+                            
+                else:
+                    with open(f'{self.packNamespace}\\recipe\\{self.recipes[recipe]["name"]}.json', 'a') as file:
+                        recip = self.recipes[recipe]["items"]
+                        file.write('{"type": "minecraft:crafting_shapeless", "ingredients": [')
+                        items = [(k, v) for k, v in recip.items() if v not in (None, '')][:-3]
+                        for ingredient, (key, value) in enumerate(items):
+                            if str(value) != "":
+                                file.write('"minecraft:' + str(value) + '"')
+                                if ingredient < len(items) - 1: file.write(',')
+                        if not recip["9"] in self.items and not recip["9"] in self.blocks:
+                            file.write('],"result":{"id": "minecraft:' + recip[str(9)] + '", "count":' + self.recipes[recipe]["count"] + '}}')
+                        elif recip["9"] in self.items:
+                            idx = self.items[recip["9"]]
+                            file.write('},"result":{ "id":"' + idx["baseItem"] + '", "count":' + self.recipes[recipe]["count"] + ', "components": {"minecraft:item_name":"{\"italic\":false,\"text\":\"' + idx["displayName"] + '\"}", "minecraft:custom_model_data": ' + self.generated_cmds["items"][idx["name"]] + '}}}')
+                        elif recip["9"] in self.blocks:
+                            idx = self.blocks[recip["9"]]
+                            file.write('},"result":{ "id":"' + 'minecraft:item_frame' + '", "count":' + self.recipes[recipe]["count"] + ', "components": {"minecraft:custom_model_data": ' + self.generated_cmds["blocks"][idx["name"]] + ',"minecraft:custom_name": "{\\"italic\\":false,\\"text\\":\\"' + idx["displayName"] + '\\"}","minecraft:entity_data": {"id": "minecraft:item_frame","Fixed": true,"Invisible": true,"Silent": true,"Invulnerable": true,"Facing": 1,"Tags": ["' + self.packAuthor + '.item_frame_block","' + self.packAuthor + '.' + idx["name"] + '"]}}}}')
+            
+            elif self.recipes[recipe]["mode"] == "smelting":
                 with open(f'{self.packNamespace}\\recipe\\{self.recipes[recipe]["name"]}.json', 'a') as file:
                     recip = self.recipes[recipe]["items"]
-                    file.write('{"type": "minecraft:crafting_shapeless", "ingredients": [')
-                    items = [(k, v) for k, v in recip.items() if v not in (None, '')][:-1]
-                    for ingredient, (key, value) in enumerate(items):
-                        if str(value) != "":
-                            file.write('"minecraft:' + str(value) + '"')
-                            if ingredient < len(items) - 1: file.write(',')
-                    if not recip["9"] in self.items:
-                        file.write('],"result":{"id": "minecraft:' + recip[str(9)] + '", "count":' + self.recipes[recipe]["count"] + '}}')
-                    elif recip["9"] in self.items:
-                        idx = self.items[recip["9"]]
-                        file.write('},"result":{ "id":"' + idx["baseItem"] + '", "count":' + self.recipes[recipe]["count"] + ', "components": {"minecraft:item_name":"{\"italic\":false,\"text\":\"' + idx["displayName"] + '\"}", "minecraft:custom_model_data": ' + self.generated_cmds["items"][idx["name"]] + '}}}')
-                    elif recip["9"] in self.blocks:
-                        idx = self.blocks[recip["9"]]
+                    if not recip["11"] in self.items and not recip["11"] in self.blocks:
+                        file.write('{ "type": "minecraft:smelting", "ingredient": "minecraft:' + recip["10"] + '", "result": { "id": "minecraft:' + recip["11"] + '"}}')
+                    elif recip["11"] in self.items:
+                        idx = self.items[recip["11"]]
+                        file.write('{ "type": "minecraft:smelting", "ingredient": "minecraft:' + recip["10"] + '", "result": { "id": "minecraft:' + recip["11"] + '", "components": {"minecraft:item_name":"{\"italic\":false,\"text\":\"' + idx["displayName"] + '\"}", "minecraft:custom_model_data": ' + self.generated_cmds["items"][idx["name"]] + '}}}')
+                    elif recip["11"] in self.blocks:
+                        idx = self.blocks[recip["11"]]
                         file.write('},"result":{ "id":"' + 'minecraft:item_frame' + '", "count":' + self.recipes[recipe]["count"] + ', "components": {"minecraft:custom_model_data": ' + self.generated_cmds["blocks"][idx["name"]] + ',"minecraft:custom_name": "{\\"italic\\":false,\\"text\\":\\"' + idx["displayName"] + '\\"}","minecraft:entity_data": {"id": "minecraft:item_frame","Fixed": true,"Invisible": true,"Silent": true,"Invulnerable": true,"Facing": 1,"Tags": ["' + self.packAuthor + '.item_frame_block","' + self.packAuthor + '.' + idx["name"] + '"]}}}}')
 
         self.setStatus("Generated!")     
