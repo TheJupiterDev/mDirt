@@ -15,8 +15,8 @@ If you don't understand a field, hover over it and read the tooltip!
 Fill in all the details, press "Generate Pack" when you are ready.
 To get your items in game, run /function YOURNAMESPACE:give_items
 
-## Next Update
-- Custom Recipes for smelting, blasting, campfire, etc.
+## Coming Soon
+- Custom Recipes for blasting, campfire, etc.
 - Custom Item support for Block Drops
 - Custom Components for Custom Items.
 
