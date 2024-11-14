@@ -4,10 +4,6 @@
 A tool for easily creating custom features using Minecraft Datapacks.
 **Only Supported for 1.21.3 and up! No previous versions will be added!**
 
-### Note on new updates:
-Updates are on hold for the moment as I need to work on other projects.
-Updates will return sometime TM
-
 ![alt text](https://github.com/TheJupiterDev/Blockker/blob/main/lib/2024-10-24_16.08.13.png)
 ![alt text](https://github.com/TheJupiterDev/Blockker/blob/main/lib/2024-10-24_16.08.35.png)
 ![alt text](https://github.com/TheJupiterDev/mDirt/blob/main/lib/ui.png)
@@ -21,6 +17,7 @@ To get your items in game, run /function YOURNAMESPACE:give_items
 
 ## Next Update
 - Custom Recipes for smelting, blasting, campfire, etc.
+- Custom Item support for Block Drops
 - Custom Components for Custom Items.
 
 ## In Progress
