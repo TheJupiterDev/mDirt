@@ -1,8 +1,8 @@
-QPushButton #a, #slot0, #slot1, #slot2, #slot3, #slot4, #slot5, #slot6, #slot7, #slot8, #slot9 {
+QPushButton #a, #slot0, #slot1, #slot2, #slot3, #slot4, #slot5, #slot6, #slot7, #slot8, #slot9, #output, #input {
     background-color: rgba(255, 255, 255, 0);
 }
 
-QLabel #a, #topFace, #leftFace, #backFace, #rightFace, #bottomFace, #frontFace, #itemTextureLabel, #slot0, #slot1, #slot2, #slot3, #slot4, #slot5, #slot6, #slot7, #slot8, #slot9 {
+QLabel #a, #topFace, #leftFace, #backFace, #rightFace, #bottomFace, #frontFace, #itemTextureLabel, #slot0, #slot1, #slot2, #slot3, #slot4, #slot5, #slot6, #slot7, #slot8, #slot9, #outputLabel, #inputLabel {
     border: 2px solid #0099cc;  /* Blue border */
     border-radius: 5px;
 }
