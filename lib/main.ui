@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>923</width>
-    <height>735</height>
+    <height>724</height>
    </rect>
   </property>
   <property name="cursor">
@@ -106,7 +106,7 @@
        <rect>
         <x>350</x>
         <y>250</y>
-        <width>69</width>
+        <width>122</width>
         <height>22</height>
        </rect>
       </property>
@@ -328,7 +328,7 @@
        <rect>
         <x>380</x>
         <y>70</y>
-        <width>69</width>
+        <width>122</width>
         <height>22</height>
        </rect>
       </property>
@@ -1143,7 +1143,7 @@
        <rect>
         <x>300</x>
         <y>90</y>
-        <width>91</width>
+        <width>122</width>
         <height>22</height>
        </rect>
       </property>
@@ -1293,8 +1293,8 @@
      <widget class="QTabWidget" name="tabWidget_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>40</y>
+        <x>10</x>
+        <y>100</y>
         <width>481</width>
         <height>391</height>
        </rect>
@@ -1814,32 +1814,6 @@
          <set>Qt::TextInteractionFlag::LinksAccessibleByMouse</set>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>260</y>
-          <width>113</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="toolTip">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The name of the recipe! Should be lowercase &amp;amp; underscores only.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_25">
-        <property name="geometry">
-         <rect>
-          <x>40</x>
-          <y>260</y>
-          <width>81</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Recipe Name:</string>
-        </property>
-       </widget>
        <widget class="QSpinBox" name="slot9Count">
         <property name="geometry">
          <rect>
@@ -1857,6 +1831,22 @@
         </property>
         <property name="maximum">
          <number>64</number>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buttonAddRecipe">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>240</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Adds the recipe!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Add Crafting Recipe</string>
         </property>
        </widget>
        <zorder>shapeless</zorder>
@@ -1881,43 +1871,174 @@
        <zorder>slot8</zorder>
        <zorder>slot7</zorder>
        <zorder>slot9</zorder>
-       <zorder>lineEdit</zorder>
-       <zorder>label_25</zorder>
        <zorder>slot9Count</zorder>
+       <zorder>buttonAddRecipe</zorder>
       </widget>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
         <string>Smelting</string>
        </attribute>
-       <widget class="QLabel" name="label_24">
+       <widget class="QLabel" name="inputLabel">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="geometry">
          <rect>
-          <x>170</x>
-          <y>110</y>
-          <width>111</width>
+          <x>60</x>
+          <y>80</y>
+          <width>41</width>
           <height>41</height>
          </rect>
         </property>
         <property name="text">
-         <string>COMING SOON!</string>
+         <string/>
+        </property>
+        <property name="textInteractionFlags">
+         <set>Qt::TextInteractionFlag::LinksAccessibleByMouse</set>
         </property>
        </widget>
+       <widget class="QPushButton" name="input">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>80</y>
+          <width>41</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The input slot of a smelting recipe. Click to select block/item.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="output">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>80</y>
+          <width>41</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The output slot of a smelting recipe. Click to select block/item.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="outputLabel">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>80</y>
+          <width>41</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="textInteractionFlags">
+         <set>Qt::TextInteractionFlag::LinksAccessibleByMouse</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_24">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>80</y>
+          <width>21</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Yu Gothic</family>
+          <pointsize>50</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>-&gt;</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buttonAddRecipe_2">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>190</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Adds the recipe!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Add Smelting Recipe</string>
+        </property>
+       </widget>
+       <zorder>inputLabel</zorder>
+       <zorder>input</zorder>
+       <zorder>label_24</zorder>
+       <zorder>outputLabel</zorder>
+       <zorder>output</zorder>
+       <zorder>buttonAddRecipe_2</zorder>
       </widget>
      </widget>
-     <widget class="QPushButton" name="buttonAddRecipe">
+     <widget class="QLabel" name="label_25">
       <property name="geometry">
        <rect>
-        <x>420</x>
-        <y>450</y>
-        <width>75</width>
-        <height>23</height>
+        <x>10</x>
+        <y>60</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Recipe Name:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>60</y>
+        <width>113</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Adds the recipe!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="text">
-       <string>Add</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The name of the recipe! Should be lowercase &amp;amp; underscores only.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </widget>
