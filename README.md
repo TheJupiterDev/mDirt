@@ -19,6 +19,7 @@ To get your items in game, run /function YOURNAMESPACE:give_items
 - Custom Recipes for blasting, campfire, etc.
 - Custom Item support for Block Drops
 - Custom Components for Custom Items.
+- Full code rewrite
 
 ## In Progress
 - MacOS native binary (@JustJoshinDev)
