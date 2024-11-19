@@ -8,7 +8,7 @@ A tool for easily creating custom features using Minecraft Datapacks.
 v1.x of mDirt will not be updated further, at all. I am writing v2.0 right now, but it may take a bit (I am fully refactoring the entire app).
 
 When it does release, it will come with custom recipes for blasting, campfire, etc as well as custom items for block drops, and custom components for custom items!
-
+### UPDATE: v2.0 is 80% refactored!
 Thanks for reading my little rant!
 
 ![alt text](https://github.com/TheJupiterDev/Blockker/blob/main/lib/2024-10-24_16.08.13.png)
