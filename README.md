@@ -1,15 +1,8 @@
 # mDirt
 ## making Datapacks Is Really Tedious
 
-A tool for easily creating custom features using Minecraft Datapacks.
-**Only Supported for 1.21.3 and up! No previous versions will be added!**
-
-### About Updates
-v1.x of mDirt will not be updated further, at all. I am writing v2.0 right now, but it may take a bit (I am fully refactoring the entire app).
-
-When it does release, it will come with custom recipes for blasting, campfire, etc as well as custom items for block drops, and custom components for custom items!
-### UPDATE: v2.0 is 80% refactored!
-Thanks for reading my little rant!
+### mDirt has moved!
+### New Location: https://github.com/Faith-and-Code-Technologies/mDirt-2
 
 ![alt text](https://github.com/TheJupiterDev/Blockker/blob/main/lib/2024-10-24_16.08.13.png)
 ![alt text](https://github.com/TheJupiterDev/Blockker/blob/main/lib/2024-10-24_16.08.35.png)
