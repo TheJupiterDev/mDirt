@@ -2,7 +2,7 @@
 ## making Datapacks Is Really Tedious
 
 ### mDirt has moved!
-### New Location: https://github.com/Faith-and-Code-Technologies/mDirt-2
+### New Location: https://github.com/Faith-and-Code-Technologies/mDirt
 
 ![alt text](https://github.com/TheJupiterDev/Blockker/blob/main/lib/2024-10-24_16.08.13.png)
 ![alt text](https://github.com/TheJupiterDev/Blockker/blob/main/lib/2024-10-24_16.08.35.png)
